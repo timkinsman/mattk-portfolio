@@ -1,10 +1,10 @@
 import { ContentLayout, MainLayout } from '@/components/Layout';
 
-export const NotFound = () => {
+export const CaseStudies = () => {
   return (
     <MainLayout>
-      <ContentLayout title="Not found">
-        <div>Sorry, that page could not be found</div>
+      <ContentLayout title="Case studies">
+        <div>Case studies</div>
       </ContentLayout>
     </MainLayout>
   );
