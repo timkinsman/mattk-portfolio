@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const storagePrefix = 'mattk_portfolio_';
+export const storagePrefix = 'mattk_portfolio_';
 
 export enum Storage {
   theme = 'theme',

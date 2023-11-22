@@ -1,4 +1,8 @@
 import { ContentLayout, MainLayout } from '@/components/Layout';
+import { methods, principles, process, tools, whatIDoHeroItems } from '@/constants';
+import clsx from 'clsx';
+import parse from 'html-react-parser';
+import { Link } from 'react-router-dom';
 
 export const WhatIDo = () => {
   return (
@@ -6,193 +10,74 @@ export const WhatIDo = () => {
       <ContentLayout title="What I do">
         <div className="mt-24">
           <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I try to do</h3>
-              <p className="mt-6">
-                Listen, have at least showered before my first zoom call, solve complex problems,
-                have fun, question everything, create transformative and memorable experiences,
-                enable meaningful conversations between a brand and their audience, tell a story,
-                dissolve ego, communicate clearly, consider everyone for accessibility, make a
-                positive impact in improving the livelihood of all beings.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
+            {whatIDoHeroItems.map((whatIDoHeroItem) => (
+              <div>
+                <h4 className="text-4xl">{whatIDoHeroItem.icon}</h4>
+                <h3 className="mt-6 text-2xl">{whatIDoHeroItem.title}</h3>
+                <p className="mt-6">{whatIDoHeroItem.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="mt-24">
-          <h3 className="text-2xl">Principles</h3>
+          <h3 className="text-2xl">{principles.title}</h3>
+          <div className="grid md:grid-cols-3 gap-6 mt-14 md:gap-y-20">
+            {principles.items.map((item) => (
+              <div>
+                <h4 className="text-4xl">{item.icon}</h4>
+                <h3 className="mt-6 text-xl">{item.title}</h3>
+                <p className="mt-6">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-24">
+          <h3 className="text-2xl">{process.title}</h3>
+          <div className="grid md:grid-cols-3 gap-6 mt-14 md:gap-y-20">
+            {process.items.map((item) => (
+              <div>
+                <h4 className="text-4xl">{item.icon}</h4>
+                <h3 className="mt-6 text-xl">{item.title}</h3>
+                <p className="mt-6">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-24">
+          <h3 className="text-2xl">{methods.title}</h3>
           <div className="grid md:grid-cols-3 gap-6 mt-14">
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I try to do</h3>
-              <p className="mt-6">
-                Listen, have at least showered before my first zoom call, solve complex problems,
-                have fun, question everything, create transformative and memorable experiences,
-                enable meaningful conversations between a brand and their audience, tell a story,
-                dissolve ego, communicate clearly, consider everyone for accessibility, make a
-                positive impact in improving the livelihood of all beings.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I try to do</h3>
-              <p className="mt-6">
-                Listen, have at least showered before my first zoom call, solve complex problems,
-                have fun, question everything, create transformative and memorable experiences,
-                enable meaningful conversations between a brand and their audience, tell a story,
-                dissolve ego, communicate clearly, consider everyone for accessibility, make a
-                positive impact in improving the livelihood of all beings.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
+            {methods.items.map((item) => (
+              <div>
+                <Link to={item.to}>{item.title}</Link>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="mt-24">
-          <h3 className="text-2xl">Process</h3>
-          <div className="grid md:grid-cols-3 gap-6 mt-14">
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I try to do</h3>
-              <p className="mt-6">
-                Listen, have at least showered before my first zoom call, solve complex problems,
-                have fun, question everything, create transformative and memorable experiences,
-                enable meaningful conversations between a brand and their audience, tell a story,
-                dissolve ego, communicate clearly, consider everyone for accessibility, make a
-                positive impact in improving the livelihood of all beings.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I try to do</h3>
-              <p className="mt-6">
-                Listen, have at least showered before my first zoom call, solve complex problems,
-                have fun, question everything, create transformative and memorable experiences,
-                enable meaningful conversations between a brand and their audience, tell a story,
-                dissolve ego, communicate clearly, consider everyone for accessibility, make a
-                positive impact in improving the livelihood of all beings.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
-            <div>
-              <img />
-              <h3 className="mt-6 text-2xl">What I don’t try to do</h3>
-              <p className="mt-6">
-                Make assumptions, ask leading questions, use too many buzzwords, go over budget,
-                abbreviate things, bite off more than I can chew, worry about success, let my
-                perfectionism seap in, take a ‘waterfall’ approach, take the easier path, make
-                arbitrary decisions, add to the world’s noise.
-              </p>
-            </div>
-          </div>
-        </div>
+          <h3 className="text-2xl">{tools.title}</h3>
+          <div className="grid grid-cols-3 md:grid-cols-5 mt-10">
+            {tools.items.map((item) => (
+              <div
+                className={clsx('relative group w-full h-36 flex items-center justify-center gap-2', {
+                  ['hidden md:block']: item.name === 'dScout',
+                })}
+              >
+                <div className="absolute opacity-100 group-hover:opacity-0 transition-opacity top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  {parse(item.icon)}
+                </div>
 
-        <div className="mt-24">
-          <h3 className="text-2xl">Methods</h3>
-          <div className="grid md:grid-cols-3 gap-6 mt-14">
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
-            <p>A/B Testing</p>
+                <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <a href={item.to} target="_blank" className="whitespace-nowrap">
+                    {item.name}
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-
-        <div className="mt-24">
-          <h3 className="text-2xl">Tools</h3>
-          <div className="grid md:grid-cols-5 grid-cols-3 gap-6 mt-14"></div>
         </div>
       </ContentLayout>
     </MainLayout>

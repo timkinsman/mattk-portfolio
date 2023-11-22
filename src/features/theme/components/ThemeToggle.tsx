@@ -1,20 +1,31 @@
-import { updateTheme } from '@/features/misc/utils';
-import storage, { Storage } from '@/utils/storage';
+import { useLocalStorage } from 'usehooks-ts';
+import { Storage, storagePrefix } from '@/utils/storage';
 import clsx from 'clsx';
+import { useEffect } from 'react';
+import { updateTheme } from '@/features/misc/utils';
 
 export const ThemeToggle = () => {
-  const theme = storage.getItem(Storage.theme);
+  const [theme, setTheme] = useLocalStorage<'light' | 'dark'>(
+    `${storagePrefix}${Storage.theme}`,
+    'dark'
+  );
+
+  useEffect(() => {
+    updateTheme(theme);
+  }, [theme]);
+
+  const isDarkTheme = theme === 'dark';
 
   return (
     <button
       id="theme-toggle"
       type="button"
-      className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-      onClick={updateTheme}
+      className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+      onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
     >
       <svg
         id="theme-toggle-dark-icon"
-        className={clsx('w-5 h-5', { hidden: theme === 'dark' })}
+        className={clsx('w-5 h-5', { hidden: isDarkTheme })}
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +34,7 @@ export const ThemeToggle = () => {
       </svg>
       <svg
         id="theme-toggle-light-icon"
-        className={clsx('w-5 h-5', { hidden: theme === 'light' })}
+        className={clsx('w-5 h-5', { hidden: !isDarkTheme })}
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"

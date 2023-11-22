@@ -31,7 +31,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <React.Suspense
       fallback={
-        <div className="flex items-center justify-center w-screen h-screen">
+        <div className="flex items-center justify-center w-screen h-screen bg-white dark:bg-[#0F0E10] text-black dark:text-white">
           <Spinner size="xl" />
         </div>
       }
@@ -41,7 +41,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
           <QueryClientProvider client={queryClient}>
             {/* {process.env.NODE_ENV !== 'test' && <ReactQueryDevtools />} */}
             <Notifications />
-              <Router>{children}</Router>
+            <Router>{children}</Router>
           </QueryClientProvider>
         </HelmetProvider>
       </ErrorBoundary>
