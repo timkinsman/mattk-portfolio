@@ -11,11 +11,11 @@ export const ContentLayout = ({ children, title }: ContentLayoutProps) => {
   return (
     <>
       <Head title={title} />
-      <div className="py-28 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="py-8 md:py-28 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">
           <h1 className="text-6xl">{title}</h1>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">{children}</div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">{children}</div>
       </div>
     </>
   );
