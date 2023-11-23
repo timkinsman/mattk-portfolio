@@ -8,25 +8,20 @@ export default {
         // Complex site-specific column configuration
         footer: 'minmax(0, 1fr) minmax(0, 1fr) min-content',
       },
-      colors: {
-        'port-phillip': '#13676f',
-        'bank-vic': '#279cd0',
-        lumea: '#222f32',
-        bupa: '#046ebc',
-      },
       animation: {
         'ping-slow': 'ping 3s linear infinite',
-        fade: 'fade 6s ease-in-out infinite',
-        'fade-reverse': 'fade-reverse 6s ease-in-out infinite',
+        'fade-in-out': 'fade-in-out 12s ease-in-out infinite',
+        'fade-in': 'fade-in 2s linear',
       },
       keyframes: {
-        fade: {
-          '0%, 45%': { opacity: 1, transform: 'none' },
-          '55%, 100%': { opacity: 0, transform: 'translateY(-2.1rem)' },
+        'fade-in-out': {
+          '0%': { opacity: 0, transform: 'translateY(-2.1rem)' },
+          '5%, 45%': { opacity: 1, transform: 'none' },
+          '50%, 100%': { opacity: 0, transform: 'translateY(-2.1rem)' },
         },
-        'fade-reverse': {
-          '0%, 45%': { opacity: 0, transform: 'translateY(-2.1rem)' },
-          '55%, 100%': { opacity: 1, transform: 'none' },
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '20%, 100%': { opacity: 1 },
         },
       },
     },
