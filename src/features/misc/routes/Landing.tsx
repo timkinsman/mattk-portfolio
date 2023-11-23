@@ -2,18 +2,39 @@ import { Head } from '@/components/Head';
 import { MainLayout } from '@/components/Layout';
 import { RecentTrack } from '@/features/recentTrack';
 import parse from 'html-react-parser';
-import { awards, landingHero, landingIds, socialItems, testimonials } from '@/constants';
+import {
+  awards,
+  caseStudies,
+  landingHero,
+  landingIds,
+  socialItems,
+  testimonials,
+} from '@/constants';
 import CircleFilledIcon from '@/assets/circle-filled.svg?react';
 import { ThemeToggle } from '@/features/theme';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import ArrowDownIcon from '@/assets/arrow-down.svg?react';
 import clsx from 'clsx';
 import { Panel } from '@/features/caseStudies';
 import { SelectedClients } from '@/features/caseStudies/components/SelectedClients';
+import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
+import { logger } from '@/utils/logger';
+
+const caseStudy1 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[1]);
+const caseStudy2 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[2]);
+const caseStudy3 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[3]);
+const caseStudy4 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[4]);
+
+logger.info({ caseStudy1, caseStudy2, caseStudy3, caseStudy4 });
 
 export const Landing = () => {
   const [ticking, setTicking] = useState(true);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  const refPanel1 = useRef<HTMLDivElement>(null);
+  const refPanel2 = useRef<HTMLDivElement>(null);
+  const refPanel3 = useRef<HTMLDivElement>(null);
+  const refPanel4 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(
@@ -22,6 +43,43 @@ export const Landing = () => {
     );
     return () => clearTimeout(timer);
   }, [testimonialIndex, ticking]);
+
+  const onScroll = useCallback(() => {
+    const container = document.getElementById('container');
+
+    if (!container) {
+      return;
+    }
+
+    if (refPanel1.current && isScrolledIntoView(refPanel1.current, 'majority')) {
+      logger.info('refPanel1 is scrolled into view');
+      container.style.backgroundColor = caseStudy1?.color ?? '';
+      container.style.color = caseStudy1?.contrastTextColor ?? '';
+    } else if (refPanel2.current && isScrolledIntoView(refPanel2.current, 'majority')) {
+      logger.info('refPanel2 is scrolled into view');
+      container.style.backgroundColor = caseStudy2?.color ?? '';
+      container.style.color = caseStudy2?.contrastTextColor ?? '';
+    } else if (refPanel3.current && isScrolledIntoView(refPanel3.current, 'majority')) {
+      logger.info('refPanel3 is scrolled into view');
+      container.style.backgroundColor = caseStudy3?.color ?? '';
+      container.style.color = caseStudy3?.contrastTextColor ?? '';
+    } else if (refPanel4.current && isScrolledIntoView(refPanel4.current, 'majority')) {
+      logger.info('refPanel4 is scrolled into view');
+      container.style.backgroundColor = caseStudy4?.color ?? '';
+      container.style.color = caseStudy4?.contrastTextColor ?? '';
+    } else {
+      container.style.backgroundColor = '';
+      container.style.color = '';
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [onScroll]);
 
   return (
     <>
@@ -55,20 +113,20 @@ export const Landing = () => {
           </div>
         </div>
 
-        <div id={landingIds[1]} className="h-screen flex">
-          <Panel id="port-phillip" />
+        <div id={landingIds[1]} ref={refPanel1} className="h-screen flex">
+          <Panel id={landingIds[1]} />
         </div>
 
-        <div id={landingIds[2]} className="h-screen flex">
-          <Panel id="bank-vic" />
+        <div id={landingIds[2]} ref={refPanel2} className="h-screen flex">
+          <Panel id={landingIds[2]} />
         </div>
 
-        <div id={landingIds[3]} className="h-screen flex">
-          <Panel id="lumea" />
+        <div id={landingIds[3]} ref={refPanel3} className="h-screen flex">
+          <Panel id={landingIds[3]} />
         </div>
 
-        <div id={landingIds[4]} className="h-screen flex">
-          <Panel id="bupa" />
+        <div id={landingIds[4]} ref={refPanel4} className="h-screen flex">
+          <Panel id={landingIds[4]} />
         </div>
 
         <div id={landingIds[5]} className="py-8 md:py-28">

@@ -1,5 +1,8 @@
 // ’
 
+import { CaseStudy } from '@/types';
+import { getContrastTextColor } from '@/utils/getContrastTextColor';
+
 type NavigationItem = {
   name: string;
   to: string;
@@ -108,7 +111,14 @@ export const socialItems: SocialItem[] = [
 export const landingHero =
   'Hello, my name is <a href="/about-me">Matthew Kinsman</a>, I’m a senior product designer currently living in Melbourne and working at <a href="https://www.mindsethealth.com/" target="_blank">Mindset Health</a>.';
 
-export const landingIds = ['hero', 'panel-1', 'panel-2', 'panel-3', 'panel-4', 'content'];
+export const landingIds: [
+  'hero',
+  CaseStudy['id'],
+  CaseStudy['id'],
+  CaseStudy['id'],
+  CaseStudy['id'],
+  'content',
+] = ['hero', 'port-phillip', 'bank-vic', 'lumea', 'bupa', 'content'];
 
 export const testimonials = {
   title: 'Testimonials',
@@ -1039,7 +1049,7 @@ export const socials = {
   ],
 };
 
-export const caseStudies = [
+export const caseStudies: CaseStudy[] = [
   {
     id: 'port-phillip',
     title: 'City of Port Phillip',
@@ -1047,6 +1057,7 @@ export const caseStudies = [
       'A brand new digital ecosystem including multiple websites and customer facing online services.',
     hero: 'A brand new digital ecosystem including multiple websites and customer facing online services.',
     color: '#13676f',
+    contrastTextColor: getContrastTextColor('#13676f')
   },
   {
     id: 'bank-vic',
@@ -1055,6 +1066,7 @@ export const caseStudies = [
       'A future-proof platform, with endless customisation and a personalised experience.',
     hero: 'BankVic is a 100% member owned bank focused on serving police, health, emergency and public services, as well as their family and friends. Their aim is to build healthy communities that are financially, socially and environmentally sustainable.',
     color: '#279cd0',
+    contrastTextColor: getContrastTextColor('#279cd0')
   },
   {
     id: 'lumea',
@@ -1063,6 +1075,7 @@ export const caseStudies = [
       'A market first solution that’s accelerate Australia toward a smarter energy future.',
     hero: 'A market first solution that’s accelerate Australia toward a smarter energy future.',
     color: '#222f32',
+    contrastTextColor: getContrastTextColor('#222f32')
   },
   {
     id: 'bupa',
@@ -1071,5 +1084,6 @@ export const caseStudies = [
       'A reimagined way of working and subsequently a platform to proper service its users needs.',
     hero: 'A reimagined way of working and subsequently a platform to proper service its users needs.',
     color: '#046ebc',
+    contrastTextColor: getContrastTextColor('#046ebc')
   },
 ];
