@@ -39,7 +39,7 @@ export const SelectedClients = () => {
         <div className="grid grid-cols-2 md:grid-cols-4">
           {selectedClients.items.slice(0, selectedClients.items.length / 2).map((item, i) => (
             <div
-              className="animate-fade w-full h-40 flex items-center justify-center gap-2"
+              className="animate-fade-in-out w-full h-40 flex items-center justify-center gap-2"
               style={{ animationDelay: getAnimationDelay(i) }}
             >
               {parse(item)}
@@ -50,8 +50,8 @@ export const SelectedClients = () => {
         <div className="absolute grid grid-cols-2 md:grid-cols-4 top-0 w-full">
           {selectedClients.items.slice(selectedClients.items.length / 2).map((item, i) => (
             <div
-              className="animate-fade-reverse w-full h-40 flex items-center justify-center gap-2"
-              style={{ animationDelay: getAnimationDelay(i) }}
+              className="animate-fade-in-out w-full h-40 flex items-center justify-center gap-2"
+              style={{ animationDelay: getAnimationDelay(i), animationDirection: 'reverse' }}
             >
               {parse(item)}
             </div>

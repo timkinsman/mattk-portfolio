@@ -30,33 +30,15 @@ export const RecentTrack = () => {
     );
   }
 
-  // Fallback
-  if (track === undefined) {
-    return (
-      <div className="inline-flex gap-2">
-        <span className="relative">
-          <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#1DB954] opacity-75"></span>
-          <img src={spotifyMark} alt="Spotify logo" className="h-6 w-6" />
-        </span>
-        <a
-          href="https://open.spotify.com/track/1nM9Jgm0oInPG0yKtcEQD0?si=a901014dfe37479a"
-          target="_blank"
-        >
-          Baths - Sunspell
-        </a>
-      </div>
-    );
-  }
-
   return (
-    <div className="inline-flex gap-2 items-center ">
+    <div className="inline-flex gap-4 items-center ">
       <span className="relative">
         <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#1DB954] opacity-75"></span>
         <img src={spotifyMark} alt="Spotify logo" className="h-6 w-6" />
       </span>
 
-      <a href={track.uri} target="_blank">
-        {track.name}, {track.artists[0].name}
+      <a href={track === undefined ? 'https://open.spotify.com/track/1nM9Jgm0oInPG0yKtcEQD0?si=a901014dfe37479a' : track.uri} target="_blank">
+        {track === undefined ? `Sunspell, Baths` : `${track.name}, ${track.artists[0].name}`}
       </a>
     </div>
   );
