@@ -5,7 +5,7 @@ import { QueryClientProvider } from 'react-query';
 // import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Button, Spinner } from '@/components/Elements';
+import { Button } from '@/components/Elements';
 import { Notifications } from '@/components/Notifications/Notifications';
 import { queryClient } from '@/lib/react-query';
 
@@ -32,7 +32,10 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     <React.Suspense
       fallback={
         <div className="flex items-center justify-center w-screen h-screen bg-white dark:bg-[#0F0E10] text-black dark:text-white">
-          <Spinner size="xl" />
+          <div className='text-center animate-fade-in'>
+            <h3 className="text-xl">Matthew Kinsman Portfolio</h3>
+            <p className='mt-2'>© {new Date().getFullYear()}, Melbourne, Australia</p>
+          </div>
         </div>
       }
     >
