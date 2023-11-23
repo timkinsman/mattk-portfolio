@@ -52,7 +52,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
               </ul>
             </div>
           </nav>
-          <main className="flex-1 relative overflow-y-auto focus:outline-none animate-fade-in">{children}</main>
+          <main className="flex-1 relative overflow-y-auto focus:outline-none animate-fade-in">
+            {children}
+          </main>
         </div>
 
         <div
@@ -91,7 +93,12 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
               <ul className="flex flex-col gap-6">
                 {navigation.map((item) => (
                   <div className="w-fit">
-                    <Link key={item.name} to={item.to} className="text-2xl">
+                    <Link
+                      key={item.name}
+                      to={item.to}
+                      className="text-2xl"
+                      onClick={() => setSidebarOpen(false)}
+                    >
                       {item.name}
                     </Link>
                   </div>
