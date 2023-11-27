@@ -64,7 +64,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         >
           <div className="fixed inset-0 bg-gray-800 opacity-25"></div>
 
-          <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-full px-4 bg-white dark:bg-[#0F0E10] overflow-y-auto justify-between">
+          <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-full px-4 bg-white dark:bg-[#0F0E10] text-black dark:text-white overflow-y-auto justify-between">
             <div className="flex items-center h-16">
               <div className="ml-auto flex">
                 <button
