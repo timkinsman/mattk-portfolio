@@ -12,13 +12,15 @@ import { queryClient } from '@/lib/react-query';
 const ErrorFallback = () => {
   return (
     <div
-      className="text-red-500 w-screen h-screen flex flex-col justify-center items-center"
+      className="flex items-center justify-center w-screen h-screen bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white"
       role="alert"
     >
-      <h2 className="text-lg font-semibold">Ooops, something went wrong :( </h2>
-      <Button className="mt-4" onClick={() => window.location.assign(window.location.origin)}>
-        Refresh
-      </Button>
+      <div className="text-center flex flex-col items-center animate-fade-in">
+        <h2 className="text-xl">Sorry, an unexpected error occurred.</h2>
+        <Button className="mt-4" onClick={() => window.location.assign(window.location.origin)}>
+          Refresh
+        </Button>
+      </div>
     </div>
   );
 };
@@ -31,10 +33,10 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <React.Suspense
       fallback={
-        <div className="flex items-center justify-center w-screen h-screen bg-white dark:bg-[#0F0E10] text-black dark:text-white">
-          <div className='text-center animate-fade-in'>
+        <div className="flex items-center justify-center w-screen h-screen bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white">
+          <div className="text-center animate-fade-in">
             <h3 className="text-xl">Matthew Kinsman Portfolio</h3>
-            <p className='mt-2'>© {new Date().getFullYear()}, Melbourne, Australia</p>
+            <p className="mt-2">© {new Date().getFullYear()}, Melbourne, Australia</p>
           </div>
         </div>
       }

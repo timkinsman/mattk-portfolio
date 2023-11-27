@@ -2,14 +2,14 @@ import { ContentLayout, MainLayout } from '@/components/Layout';
 import { aboutMeQuote, awards, bio, curriculumVitaeLink, education, experience } from '@/constants';
 import portrait from '@/assets/portrait.png';
 import parse from 'html-react-parser';
-import { SelectedClients } from '@/features/caseStudies/components/SelectedClients';
+import { SelectedClients } from '@/features/caseStudies';
 
 export const AboutMe = () => {
   return (
     <MainLayout>
       <ContentLayout title="About me">
         <div className="mt-24">
-          <h4 className="text-3xl">{aboutMeQuote}</h4>
+          <h4 className="text-2xl sm:text-3xl">{aboutMeQuote}</h4>
         </div>
 
         <div className="mt-24 grid md:grid-cols-2 gap-8">

@@ -1,4 +1,4 @@
-import { selectedClients } from '@/constants';
+import { selectedClients } from '@/constants/selectedClients';
 import parse from 'html-react-parser';
 
 export const SelectedClients = () => {
