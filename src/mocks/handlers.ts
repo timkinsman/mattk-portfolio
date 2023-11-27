@@ -5,8 +5,7 @@ export const handlers = [
     // Await a random realistic server response time.
     await delay();
 
-    return new HttpResponse(null, { status: 401 });
-
+    // return new HttpResponse(null, { status: 401 });
     return HttpResponse.json(
       {
         recenttracks: {
@@ -21,8 +20,7 @@ export const handlers = [
     // Await a random realistic server response time.
     await delay();
 
-    return new HttpResponse(null, { status: 401 });
-
+    // return new HttpResponse(null, { status: 401 });
     return HttpResponse.json({ access_token: 'token' }, { status: 200 });
   }),
 
@@ -30,16 +28,16 @@ export const handlers = [
     // Await a random realistic server response time.
     await delay();
 
-    return new HttpResponse(null, { status: 401 });
+    // return new HttpResponse(null, { status: 401 });
 
     return HttpResponse.json(
       {
         tracks: {
           items: [
             {
-              artists: [{ name: 'Ohmme' }],
-              name: 'Fashion',
-              uri: 'spotify:track:0HGZqIwzkIWvZyERkBpAg9',
+              artists: [{ name: 'Motoi Sakuraba' }],
+              name: 'Gwyn, Lord of Cinder',
+              uri: 'spotify:track:70c9dfe818ad4644',
             },
           ],
         },

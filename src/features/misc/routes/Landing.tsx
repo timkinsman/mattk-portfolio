@@ -95,7 +95,7 @@ export const Landing = () => {
             <div className="m-auto text-9xl">{/* 😐 */}</div>
           </div>
 
-          <div className="absolute bottom-0 h-16 flex items-center justify-between w-full px-4 sm:px-6 lg:px-24">
+          <div className="absolute bottom-0 h-16 flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
             <RecentTrack />
 
             <div className="flex gap-4 ml-auto">
