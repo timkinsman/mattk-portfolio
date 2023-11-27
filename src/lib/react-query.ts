@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { logger } from '@/utils/logger';
 import { AxiosError } from 'axios';
 import { QueryClient, UseQueryOptions, UseMutationOptions, DefaultOptions } from 'react-query';
 import { PromiseValue } from 'type-fest';
 
 const queryConfig: DefaultOptions = {
   queries: {
-    useErrorBoundary: true,
+    // useErrorBoundary: true,
     refetchOnWindowFocus: false,
     retry: false,
+    onError(err) {
+      logger.error(err);
+    },
   },
 };
 

@@ -1,7 +1,9 @@
 import { ContentLayout, MainLayout } from '@/components/Layout';
 import { details, getInTouch, socials } from '@/constants';
-import clsx from 'clsx';
+
 import parse from 'html-react-parser';
+import { IconCard } from '../components/IconCard';
+import clsx from 'clsx';
 
 export const Contact = () => {
   return (
@@ -28,22 +30,11 @@ export const Contact = () => {
           <div className="grid grid-cols-3 md:grid-cols-5 mt-10 gap-8 md:gap-y-16">
             {socials.items.map((item) => (
               <div
-                className={clsx(
-                  'relative group w-full h-20 flex items-center justify-center gap-2',
-                  {
-                    ['hidden md:block']: item.name === 'The Dots',
-                  }
-                )}
+                className={clsx({
+                  ['hidden md:block']: item.name === 'The Dots',
+                })}
               >
-                <div className="absolute opacity-100 group-hover:opacity-0 transition-opacity top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  {parse(item.icon)}
-                </div>
-
-                <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <a href={item.to} target="_blank" className="whitespace-nowrap">
-                    {item.name}
-                  </a>
-                </div>
+                <IconCard item={item} />
               </div>
             ))}
           </div>
