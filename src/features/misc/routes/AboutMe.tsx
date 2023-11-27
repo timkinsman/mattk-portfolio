@@ -9,7 +9,7 @@ export const AboutMe = () => {
     <MainLayout>
       <ContentLayout title="About me">
         <div className="mt-24">
-          <h4 className="text-3xl">{aboutMeQuote}</h4>
+          <h4 className="text-2xl sm:text-3xl">{aboutMeQuote}</h4>
         </div>
 
         <div className="mt-24 grid md:grid-cols-2 gap-8">
