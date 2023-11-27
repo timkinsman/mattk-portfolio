@@ -41,13 +41,18 @@ export const RecentTrack = () => {
   if (!token.data || !recentTracks.data || !tracks.data) return null;
 
   return (
-    <div className="inline-flex gap-4 items-center ">
-      <span className="relative">
-        <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#1DB954] opacity-75"></span>
+    <div className="inline-flex gap-4 items-center overflow-auto">
+      <span className="relative shrink-0">
+        {/* todo: see if i can get this working with overflow auto */}
+        {/* <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#1DB954] opacity-75"></span> */}
         <img src={spotifyMark} alt="Spotify logo" className="h-6 w-6" />
       </span>
 
-      <a href={(track ?? fallbackTrack).uri} target="_blank">
+      <a
+        href={(track ?? fallbackTrack).uri}
+        target="_blank"
+        className="whitespace-nowrap w-full overflow-hidden overflow-ellipsis"
+      >
         {formatTrack(track ?? fallbackTrack)}
       </a>
     </div>
