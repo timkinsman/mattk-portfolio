@@ -58,7 +58,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         </div>
 
         <div
-          className={clsx('relative z-50', {
+          className={clsx('relative z-50 animate-fade-in', {
             ['hidden']: !sidebarOpen,
           })}
         >
