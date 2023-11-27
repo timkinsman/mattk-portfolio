@@ -12,7 +12,7 @@ import { queryClient } from '@/lib/react-query';
 const ErrorFallback = () => {
   return (
     <div
-      className="flex items-center justify-center w-screen h-screen bg-white dark:bg-[#0F0E10] text-black dark:text-white"
+      className="flex items-center justify-center w-screen h-screen bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white"
       role="alert"
     >
       <div className="text-center flex flex-col items-center animate-fade-in">
@@ -33,7 +33,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <React.Suspense
       fallback={
-        <div className="flex items-center justify-center w-screen h-screen bg-white dark:bg-[#0F0E10] text-black dark:text-white">
+        <div className="flex items-center justify-center w-screen h-screen bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white">
           <div className="text-center animate-fade-in">
             <h3 className="text-xl">Matthew Kinsman Portfolio</h3>
             <p className="mt-2">© {new Date().getFullYear()}, Melbourne, Australia</p>

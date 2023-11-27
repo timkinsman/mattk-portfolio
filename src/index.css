@@ -14,7 +14,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-a {
+a, .text-btn {
   opacity: 0.6;
   border-bottom: 2px solid transparent;
   transition-property: opacity, border-color;
@@ -22,7 +22,7 @@ a {
   transition-duration: 150ms;
 }
 
-a:hover {
+a:hover, .text-btn:hover {
   opacity: 1;
   border-color: currentColor
 }

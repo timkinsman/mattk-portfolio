@@ -2,7 +2,7 @@ import { ContentLayout, MainLayout } from '@/components/Layout';
 import { aboutMeQuote, awards, bio, curriculumVitaeLink, education, experience } from '@/constants';
 import portrait from '@/assets/portrait.png';
 import parse from 'html-react-parser';
-import { SelectedClients } from '@/features/caseStudies/components/SelectedClients';
+import { SelectedClients } from '@/features/caseStudies';
 
 export const AboutMe = () => {
   return (
