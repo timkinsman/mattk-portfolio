@@ -129,7 +129,7 @@ export const Landing = () => {
           <Panel id={landingIds[4]} />
         </div>
 
-        <div id={landingIds[5]} className="py-8 md:py-28">
+        <div id={landingIds[5]} className="py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">
             {/* case studies */}
 
