@@ -20,7 +20,7 @@ export const Panel = ({ id }: PanelProps) => {
       <div className="py-8 md:py-28 grid md:grid-cols-2 gap-8">
         <div>
           <h2 className="text-2xl">{caseStudy?.title}</h2>
-          <p className="text-4xl mt-6">{caseStudy?.description}</p>
+          <p className="text-3xl sm:text-4xl mt-6">{caseStudy?.description}</p>
           <div className="mt-6">
             <Link to={`/case-studies/${id}`}>View case study →</Link>
           </div>
