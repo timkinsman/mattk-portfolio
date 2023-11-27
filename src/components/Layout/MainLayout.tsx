@@ -28,7 +28,9 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         {/* <Sidebar /> */}
         <div className="flex flex-col w-0 flex-1 overflow-hidden">
           <nav className="absolute z-10 flex-shrink-0 flex items-center h-16 left-0 right-0 px-4 sm:px-6 lg:px-24 justify-between">
-            <Link to="/">Matthew Kinsman</Link>
+            <Link to="/" className={clsx({ 'opacity-100': location.pathname === '/' })}>
+              Matthew Kinsman
+            </Link>
 
             {/* if mobile */}
             <button
@@ -45,7 +47,11 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                 {navigation
                   .filter((item) => item.to !== '/')
                   .map((item) => (
-                    <Link key={item.name} to={item.to}>
+                    <Link
+                      key={item.name}
+                      to={item.to}
+                      className={clsx({ 'opacity-100': location.pathname === item.to })}
+                    >
                       {item.name}
                     </Link>
                   ))}
@@ -96,7 +102,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
                     <Link
                       key={item.name}
                       to={item.to}
-                      className="text-2xl"
+                      className={clsx('text-2xl', { 'opacity-100': location.pathname === item.to })}
                       onClick={() => setSidebarOpen(false)}
                     >
                       {item.name}
@@ -114,6 +120,8 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 };
 
 const Footer = () => {
+  const location = useLocation();
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
       <hr className="pb-20 md:pb-28 opacity-60" />
@@ -125,7 +133,11 @@ const Footer = () => {
           <div className="grid grid-cols-2 mt-8 gap-8">
             {navigation.map((item) => (
               <div>
-                <Link key={item.name} to={item.to}>
+                <Link
+                  key={item.name}
+                  to={item.to}
+                  className={clsx({ 'opacity-100': location.pathname === item.to })}
+                >
                   {item.name}
                 </Link>
               </div>
