@@ -1,5 +1,5 @@
 import { MainLayout } from '@/components/Layout';
-import { caseStudies } from '@/constants';
+import { caseStudies } from '@/constants/caseStudies';
 import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { useCallback, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';

@@ -2,21 +2,15 @@ import { Head } from '@/components/Head';
 import { MainLayout } from '@/components/Layout';
 import { RecentTrack } from '@/features/recentTrack';
 import parse from 'html-react-parser';
-import {
-  awards,
-  caseStudies,
-  landingHero,
-  landingIds,
-  socialItems,
-  testimonials,
-} from '@/constants';
+import { awards, landingHero, landingIds, socialItems, testimonials } from '@/constants';
+import { caseStudies } from '@/constants/caseStudies';
 import CircleFilledIcon from '@/assets/circle-filled.svg?react';
 import { ThemeToggle } from '@/features/theme';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ArrowDownIcon from '@/assets/arrow-down.svg?react';
 import clsx from 'clsx';
-import { Panel } from '@/features/caseStudies';
-import { SelectedClients } from '@/features/caseStudies/components/SelectedClients';
+import { CaseStudiesList, Panel } from '@/features/caseStudies';
+import { SelectedClients } from '@/features/caseStudies';
 import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { logger } from '@/utils/logger';
 
@@ -131,7 +125,7 @@ export const Landing = () => {
 
         <div id={landingIds[5]} className="py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">
-            {/* case studies */}
+            <CaseStudiesList />
 
             <SelectedClients />
 
