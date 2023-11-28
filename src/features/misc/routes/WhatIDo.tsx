@@ -52,7 +52,7 @@ export const WhatIDo = () => {
           <div className="grid md:grid-cols-3 gap-6 mt-14">
             {methods.items.map((item) => (
               <div>
-                <Link to={item.to}>{item.title}</Link>
+                <Link to={`/case-studies?q=${item}`}>{item}</Link>
               </div>
             ))}
           </div>
