@@ -2,7 +2,7 @@ import { Head } from '@/components/Head';
 import { MainLayout } from '@/components/Layout';
 import { RecentTrack } from '@/features/recentTrack';
 import parse from 'html-react-parser';
-import { awards, landingHero, landingIds, socialItems, testimonials } from '@/constants';
+import { awards, landingIds, socialItems, testimonials } from '@/constants';
 import { caseStudies } from '@/constants/caseStudies';
 import CircleFilledIcon from '@/assets/circle-filled.svg?react';
 import { ThemeToggle } from '@/features/theme';
@@ -13,6 +13,7 @@ import { CaseStudiesList, Panel } from '@/features/caseStudies';
 import { SelectedClients } from '@/features/caseStudies';
 import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { logger } from '@/utils/logger';
+import { Link } from 'react-router-dom';
 
 const caseStudy1 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[1]);
 const caseStudy2 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[2]);
@@ -83,7 +84,14 @@ export const Landing = () => {
           {/* max-w-7xl mx-auto */}
           <div id={landingIds[0]} className="px-4 sm:px-6 lg:px-24 h-screen grid md:grid-cols-2">
             <div className="m-auto order-1 md:order-none">
-              <h2 className="text-3xl sm:text-4xl">{parse(landingHero)}</h2>
+              <h2 className="text-3xl sm:text-5xl md:leading-[56px]">
+                Hello, my name is <Link to="/about-me">Matthew Kinsman</Link>, I’m a senior product
+                designer currently living in Melbourne and working at{' '}
+                <a href="https://www.mindsethealth.com/" target="_blank">
+                  Mindset Health
+                </a>
+                .
+              </h2>
             </div>
 
             <div className="m-auto text-9xl">{/* 😐 */}</div>

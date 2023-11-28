@@ -1,11 +1,6 @@
 // ’
 
-import { CaseStudy } from '@/types';
-
-type NavigationItem = {
-  name: string;
-  to: string;
-};
+import { CaseStudy, Method, NavigationItem, SocialItem } from '@/types';
 
 export const navigation: NavigationItem[] = [
   { name: 'Home', to: '/' },
@@ -15,12 +10,6 @@ export const navigation: NavigationItem[] = [
   { name: 'Other work', to: '/other-work' },
   { name: 'Contact', to: '/contact' },
 ];
-
-type SocialItem = {
-  name: string;
-  to: string;
-  icon?: string;
-};
 
 export const socialItems: SocialItem[] = [
   {
@@ -105,10 +94,6 @@ export const socialItems: SocialItem[] = [
 `,
   },
 ];
-
-// todo: see if i can get Link in there for about-me redirect
-export const landingHero =
-  'Hello, my name is <a href="/about-me">Matthew Kinsman</a>, I’m a senior product designer currently living in Melbourne and working at <a href="https://www.mindsethealth.com/" target="_blank">Mindset Health</a>.';
 
 export const landingIds: [
   'hero',
@@ -353,25 +338,25 @@ export const process = {
 export const methods = {
   title: 'Methods',
   items: [
-    { title: 'A/B Testing', to: '/what-i-do?' },
-    { title: 'Artefact Review', to: '' },
-    { title: 'Competitor Analysis', to: '' },
-    { title: 'Concept Usability Testing', to: '' },
-    { title: 'Contextual Inquiry', to: '' },
-    { title: 'Data Analytics Review', to: '' },
-    { title: 'Accessibility Testing', to: '' },
-    { title: 'Diary Studies', to: '' },
-    { title: 'Heuristics Evaluation', to: '' },
-    { title: 'IA: Card Sorting', to: '' },
-    { title: 'IA: Tree Testing', to: '' },
-    { title: 'Journey Mapping', to: '' },
-    { title: 'Online Surveys', to: '' },
-    { title: 'Persona Development', to: '' },
-    { title: 'Requirements Gathering', to: '' },
-    { title: 'Roadmapping', to: '' },
-    { title: 'Stakeholder Interviews', to: '' },
-    { title: 'User Interviews', to: '' },
-  ],
+    'A/B Testing',
+    'Artefact Review',
+    'Competitor Analysis',
+    'Concept Usability Testing',
+    'Contextual Inquiry',
+    'Data Analytics Review',
+    'Accessibility Testing',
+    'Diary Studies',
+    'Heuristics Evaluation',
+    'IA: Card Sorting',
+    'IA: Tree Testing',
+    'Journey Mapping',
+    'Online Surveys',
+    'Persona Development',
+    'Requirements Gathering',
+    'Roadmapping',
+    'Stakeholder Interviews',
+    'User Interviews',
+  ] as Method[],
 };
 
 export const otherWorkItems = [{}];
