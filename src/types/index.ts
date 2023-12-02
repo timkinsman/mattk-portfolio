@@ -59,3 +59,11 @@ export type Method =
   | 'Roadmapping'
   | 'Stakeholder Interviews'
   | 'User Interviews';
+
+export type OtherWork = {
+  id: string;
+  color: string;
+  contrastTextColor: string;
+  title: string;
+  hero: string;
+};
