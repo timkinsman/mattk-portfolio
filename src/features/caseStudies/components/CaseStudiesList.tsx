@@ -1,5 +1,5 @@
 import { caseStudies } from '@/constants/caseStudies';
-import { Capability, CaseStudy, Industry, Output } from '@/types';
+import { Capability, CaseStudy, Industry, Method, Output } from '@/types';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 // import ArrowSmDown from '@/assets/arrow-sm-down.svg?react';
 import { useEffect, useState } from 'react';
@@ -59,6 +59,26 @@ export const CaseStudiesList = () => {
     }
   };
 
+  const getNumOfFilter = (filter: Filter) => {
+    switch (filter) {
+      case 'capability':
+        return activeFilters.filter((activeFilter) =>
+          capability.includes(activeFilter as Capability)
+        ).length;
+      case 'industry':
+        return activeFilters.filter((activeFilter) => industry.includes(activeFilter as Industry))
+          .length;
+      case 'client':
+        return activeFilters.filter((activeFilter) => client.includes(activeFilter)).length;
+      case 'method':
+        return activeFilters.filter((activeFilter) => method.includes(activeFilter as Method))
+          .length;
+      case 'output':
+        return activeFilters.filter((activeFilter) => output.includes(activeFilter as Output))
+          .length;
+    }
+  };
+
   const isFiltered = activeFilters.length > 0;
 
   const filteredCaseStudies = caseStudies.filter((caseStudy) => {
@@ -80,17 +100,24 @@ export const CaseStudiesList = () => {
 
   return (
     <div>
-      <div className="flex gap-8 flex-wrap">
+      <div className="grid gap-2 grid-cols-8">
         <p>Filter by</p>
         <p>/</p>
-        {filters.map((filter) => (
-          <button
-            onClick={() => setShowFilter(filter === showFilter ? undefined : filter)}
-            className="text-btn"
-          >
-            {formatFilter(filter)} {showFilter === filter ? '↑' : '↓'}
-          </button>
-        ))}
+        {filters.map((filter) => {
+          const numOfFilter = getNumOfFilter(filter);
+          return (
+            <div>
+              <button
+                onClick={() => setShowFilter(filter === showFilter ? undefined : filter)}
+                className="text-btn"
+              >
+                {`${formatFilter(filter)}${numOfFilter > 0 ? ` / ${numOfFilter} ` : ' '}${
+                  showFilter === filter ? '↑' : '↓'
+                }`}
+              </button>
+            </div>
+          );
+        })}
 
         {isFiltered && (
           <div className="ml-auto">
@@ -108,7 +135,7 @@ export const CaseStudiesList = () => {
       </div>
 
       {showFilter !== undefined && (
-        <div className="mt-12 grid md:grid-cols-4 gap-4">
+        <div className="mt-12 grid md:grid-cols-4 gap-4 animate-fade-in" key={showFilter}>
           {getFilter(showFilter).map((filter) => (
             <Checkbox
               checked={activeFilters.includes(filter)}
