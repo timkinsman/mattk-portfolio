@@ -5,5 +5,5 @@ export * from './NotFound';
 export * from './AboutMe';
 export * from './Contact';
 export * from './CaseStudies';
-export * from './OtherWork';
+export * from './OtherWorks';
 export * from './WhatIDo';

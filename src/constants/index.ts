@@ -359,8 +359,6 @@ export const methods = {
   ] as Method[],
 };
 
-export const otherWorkItems = [{}];
-
 export const getInTouch = {
   title: 'Get in touch',
   description:
