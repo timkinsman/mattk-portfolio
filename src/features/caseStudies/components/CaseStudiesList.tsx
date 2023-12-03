@@ -1,10 +1,6 @@
 import { caseStudies } from '@/constants/caseStudies';
-import {
-  CaseStudy,
-  //  Method,
-} from '@/types';
+import { CaseStudy } from '@/types';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-// import ArrowSmDown from '@/assets/arrow-sm-down.svg?react';
 import { useEffect, useState } from 'react';
 import { methods } from '@/constants';
 import { Checkbox } from '@/components/Elements';
@@ -74,26 +70,6 @@ export const CaseStudiesList = () => {
     }
   };
 
-  // const getNumOfFilter = (filter: Filter) => {
-  //   switch (filter) {
-  //     case 'capability':
-  //       return activeFilters.filter((activeFilter) =>
-  //         capability.includes(activeFilter as Capability)
-  //       ).length;
-  //     case 'industry':
-  //       return activeFilters.filter((activeFilter) => industry.includes(activeFilter as Industry))
-  //         .length;
-  //     case 'client':
-  //       return activeFilters.filter((activeFilter) => client.includes(activeFilter)).length;
-  //     case 'method':
-  //       return activeFilters.filter((activeFilter) => method.includes(activeFilter as Method))
-  //         .length;
-  //     case 'output':
-  //       return activeFilters.filter((activeFilter) => output.includes(activeFilter as Output))
-  //         .length;
-  //   }
-  // };
-
   const isFiltered = activeFilters.length > 0;
 
   const filteredCaseStudies = caseStudies.filter((caseStudy) => {
@@ -119,25 +95,17 @@ export const CaseStudiesList = () => {
         <div className="flex gap-6 md:gap-8 flex-wrap">
           <p>Filter by</p>
           <p>/</p>
-          {filters.map((filter) => {
-            // const numOfFilter = getNumOfFilter(filter);
-
-            return (
-              <div>
-                <button
-                  onClick={() => setShowFilter(filter === showFilter ? undefined : filter)}
-                  className={clsx('text-btn')}
-                  style={{ opacity: filter === showFilter ? 1 : undefined }}
-                >
-                  {/* {`${formatFilter(filter)}${numOfFilter > 0 ? ` / ${numOfFilter} ` : ' '}${
-                    showFilter === filter ? '↑' : '↓'
-                  }`} */}
-
-                  {`${formatFilter(filter)} ${showFilter === filter ? '↑' : '↓'}`}
-                </button>
-              </div>
-            );
-          })}
+          {filters.map((filter) => (
+            <div>
+              <button
+                onClick={() => setShowFilter(filter === showFilter ? undefined : filter)}
+                className={clsx('text-btn')}
+                style={{ opacity: filter === showFilter ? 1 : undefined }}
+              >
+                {`${formatFilter(filter)} ${showFilter === filter ? '↑' : '↓'}`}
+              </button>
+            </div>
+          ))}
         </div>
 
         {isFiltered && (
@@ -179,14 +147,13 @@ export const CaseStudiesList = () => {
         ))}
       </div>
 
-      {(filteredCaseStudies.length > 8 || seeMoreCaseStudies) && (
+      {filteredCaseStudies.length > 8 && (
         <div className="mt-8 flex justify-center">
           <button
             className="text-btn text-xl flex items-center gap-2"
             onClick={() => setSeeMoreProjects(!seeMoreCaseStudies)}
           >
-            See {seeMoreCaseStudies ? 'less' : 'more'} case studies{' '}
-            {seeMoreCaseStudies ? '↑' : '↓'}
+            See {seeMoreCaseStudies ? 'less' : 'more'} case studies {seeMoreCaseStudies ? '↑' : '↓'}
           </button>
         </div>
       )}
@@ -207,7 +174,7 @@ const CaseStudyCard = ({ item }: CaseStudyCardProps) => {
     >
       <div
         style={{ backgroundColor: item.color, color: item.contrastTextColor }}
-        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full p-4 flex items-center justify-center"
+        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full p-12 flex items-center justify-center"
       >
         {parse(item.icon)}
       </div>
@@ -215,7 +182,6 @@ const CaseStudyCard = ({ item }: CaseStudyCardProps) => {
       <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-4 flex flex-col">
         <h1 className="text-2xl">{item.title}</h1>
 
-        {/* todo: dynamic groupings */}
         <h3 className="text-xl mt-2">
           {item.industry.join(', ')} • {item.capability.join(', ')}
         </h3>
