@@ -159,7 +159,7 @@ export const Landing = () => {
                   {Array.from({ length: testimonials.items.length }, (_v, i) => i).map((index) => (
                     <button
                       className={clsx(
-                        'transition-opacity text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5',
+                        'transition-opacity duration-300 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5',
                         {
                           ['opacity-60 hover:opacity-100 ']: index !== testimonialIndex,
                         }
@@ -204,7 +204,7 @@ export const Landing = () => {
         <div className="fixed right-0 lg:flex flex-col gap-2 z-10 inset-y-0 my-auto h-fit hidden w-24 items-center">
           {landingIds.map((landingId) => (
             <button
-              className="opacity-60 hover:opacity-100 transition-opacity text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+              className="opacity-60 hover:opacity-100 transition-opacity duration-300 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
               onClick={() =>
                 document.getElementById(landingId)?.scrollIntoView({ behavior: 'smooth' })
               }

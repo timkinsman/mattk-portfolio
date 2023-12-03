@@ -61,7 +61,10 @@ export const OtherWork = () => {
 
       <ContentLayout title={otherWork.title}>
         <div className="mt-24">
-          <div className="aspect-video rounded-xl" style={{ backgroundColor: otherWork.color }} />
+          <div
+            className="aspect-video rounded-xl"
+            style={{ backgroundColor: otherWork.color }}
+          ></div>
         </div>
       </ContentLayout>
     </MainLayout>

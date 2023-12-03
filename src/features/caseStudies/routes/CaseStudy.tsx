@@ -4,6 +4,7 @@ import { NotFound } from '@/features/misc';
 import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { useCallback, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import parse from 'html-react-parser';
 
 export const CaseStudy = () => {
   const { id } = useParams();
@@ -123,7 +124,9 @@ export const CaseStudy = () => {
         </div>
 
         <div className="mt-24">
-          <div className="aspect-video rounded-xl" style={{ backgroundColor: caseStudy.color }} />
+          <div className="aspect-video rounded-xl flex items-center justify-center" style={{ backgroundColor: caseStudy.color }}>
+            {parse(caseStudy.icon)}
+          </div>
         </div>
       </ContentLayout>
     </MainLayout>

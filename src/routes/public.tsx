@@ -1,6 +1,6 @@
-import { CaseStudy } from '@/features/caseStudies';
-import { AboutMe, CaseStudies, Contact, OtherWorks, WhatIDo } from '@/features/misc';
-import { OtherWork } from '@/features/otherWorks';
+import { CaseStudies, CaseStudy } from '@/features/caseStudies';
+import { AboutMe, Contact, WhatIDo } from '@/features/misc';
+import { OtherWork, OtherWorks } from '@/features/otherWorks';
 
 export const publicRoutes = [
   { path: '/about-me', element: <AboutMe /> },

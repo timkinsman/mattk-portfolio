@@ -1,6 +1,6 @@
 import { ContentLayout, MainLayout } from '@/components/Layout';
 import { aboutMeQuote, awards, bio, curriculumVitaeLink, education, experience } from '@/constants';
-import portrait from '@/assets/portrait.png';
+import portrait from '@/assets/images/portrait.png';
 import parse from 'html-react-parser';
 import { SelectedClients } from '@/features/caseStudies';
 

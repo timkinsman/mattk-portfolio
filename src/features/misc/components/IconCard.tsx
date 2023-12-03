@@ -16,11 +16,11 @@ export const IconCard = ({ item }: IconCardProps) => {
         ['hidden md:block']: item.name === 'The Dots',
       })}
     >
-      <div className="absolute opacity-100 group-hover:opacity-0 transition-opacity top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         {parse(item.icon)}
       </div>
 
-      <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <a href={item.to} target="_blank" className="whitespace-nowrap">
           {item.name}
         </a>

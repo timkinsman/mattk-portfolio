@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import { methods } from '@/constants';
 import { Checkbox } from '@/components/Elements';
 import { onlyUnique } from '@/utils/onlyUnique';
+import parse from 'html-react-parser';
+import clsx from 'clsx';
 
 type Filter = 'capability' | 'industry' | 'client' | 'method' | 'output';
 const filters = ['capability', 'industry', 'client', 'method', 'output'] as Filter[];
@@ -34,7 +36,7 @@ export const CaseStudiesList = () => {
   const [showFilter, setShowFilter] = useState<Filter>();
   const [activeFilters, setActiveFilters] = useState<string[]>(Array.from(searchParams.values()));
 
-  const [seeMoreProjects, setSeeMoreProjects] = useState(false);
+  const [seeMoreCaseStudies, setSeeMoreProjects] = useState(false);
 
   useEffect(() => {
     setSearchParams({ q: activeFilters });
@@ -124,7 +126,8 @@ export const CaseStudiesList = () => {
               <div>
                 <button
                   onClick={() => setShowFilter(filter === showFilter ? undefined : filter)}
-                  className="text-btn"
+                  className={clsx('text-btn')}
+                  style={{ opacity: filter === showFilter ? 1 : undefined }}
                 >
                   {/* {`${formatFilter(filter)}${numOfFilter > 0 ? ` / ${numOfFilter} ` : ' '}${
                     showFilter === filter ? '↑' : '↓'
@@ -171,18 +174,19 @@ export const CaseStudiesList = () => {
       )}
 
       <div className="mt-12 grid md:grid-cols-2 gap-6">
-        {filteredCaseStudies.map((caseStudy) => (
+        {filteredCaseStudies.splice(0, seeMoreCaseStudies ? 999 : 8).map((caseStudy) => (
           <CaseStudyCard item={caseStudy} />
         ))}
       </div>
 
-      {filteredCaseStudies.length > 8 && (
+      {(filteredCaseStudies.length > 8 || seeMoreCaseStudies) && (
         <div className="mt-8 flex justify-center">
           <button
             className="text-btn text-xl flex items-center gap-2"
-            onClick={() => setSeeMoreProjects(!seeMoreProjects)}
+            onClick={() => setSeeMoreProjects(!seeMoreCaseStudies)}
           >
-            See more projects ↓{/* <ArrowSmDown /> */}
+            See {seeMoreCaseStudies ? 'less' : 'more'} case studies{' '}
+            {seeMoreCaseStudies ? '↑' : '↓'}
           </button>
         </div>
       )}
@@ -203,12 +207,12 @@ const CaseStudyCard = ({ item }: CaseStudyCardProps) => {
     >
       <div
         style={{ backgroundColor: item.color, color: item.contrastTextColor }}
-        className="absolute opacity-100 group-hover:opacity-0 transition-opacity w-full h-full p-4 flex items-center justify-center"
+        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full p-4 flex items-center justify-center"
       >
-        icon
+        {parse(item.icon)}
       </div>
 
-      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity w-full h-full p-4 flex flex-col">
+      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-4 flex flex-col">
         <h1 className="text-2xl">{item.title}</h1>
 
         {/* todo: dynamic groupings */}

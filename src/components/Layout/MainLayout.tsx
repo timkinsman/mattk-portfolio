@@ -21,7 +21,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div
       id="container"
-      className="bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white transition-all"
+      className="bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white transition-all duration-300"
     >
       <div className="min-h-screen flex overflow-hidden">
         {/* <MobileSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
