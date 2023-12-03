@@ -4,6 +4,6 @@ export * from './NotFound';
 
 export * from './AboutMe';
 export * from './Contact';
-export * from './CaseStudies';
-export * from './OtherWork';
+export * from '../../caseStudies/routes/CaseStudies';
+export * from '../../otherWorks/routes/OtherWorks';
 export * from './WhatIDo';
