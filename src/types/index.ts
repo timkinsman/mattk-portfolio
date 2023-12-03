@@ -4,7 +4,28 @@ export type BaseEntity = {
 };
 
 export type CaseStudy = {
-  id: 'port-phillip' | 'bank-vic' | 'lumea' | 'bupa';
+  id:
+    | 'port-phillip'
+    | 'bank-vic'
+    | 'lumea'
+    | 'bupa'
+    | 'beyond-blue'
+    | 'childrens-court'
+    | 'city-of-darebin'
+    | 'click-frenzy'
+    | 'homely'
+    | 'eatclub'
+    | 'frank-green'
+    | 'transgrid'
+    | 'nab'
+    | 'mch'
+    | 'open-courts'
+    | 'ovic'
+    | 'small-business-victoria'
+    | 'stroke-foundation'
+    | 'sweat'
+    | 'victoria-police';
+  icon: string;
   title: string;
   description: string;
   hero: string;
@@ -62,6 +83,7 @@ export type Method =
 
 export type OtherWork = {
   id: string;
+  img: string;
   color: string;
   contrastTextColor: string;
   title: string;

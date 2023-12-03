@@ -1,5 +1,5 @@
-import { OtherWork } from "@/types";
-import { Link, useNavigate } from "react-router-dom";
+import { OtherWork } from '@/types';
+import { Link, useNavigate } from 'react-router-dom';
 
 type OtherWorkCardProps = {
   item: OtherWork;
@@ -14,12 +14,12 @@ export const OtherWorkCard = ({ item }: OtherWorkCardProps) => {
     >
       <div
         style={{ backgroundColor: item.color, color: item.contrastTextColor }}
-        className="absolute opacity-100 group-hover:opacity-0 transition-opacity w-full h-full p-4 flex items-center justify-center"
+        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full flex items-center justify-center"
       >
-        icon
+        <img className='w-full' src={item.img} alt={item.title} />
       </div>
 
-      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity w-full h-full p-4 flex flex-col">
+      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-4 flex flex-col">
         <h1 className="text-2xl">{item.title}</h1>
 
         <div className="mt-auto">
