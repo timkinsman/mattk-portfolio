@@ -124,8 +124,8 @@ const Footer = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
-      <hr className="pb-20 md:pb-28 opacity-60" />
-      <div className="pb-20 md:pb-28 grid md:grid-cols-footer items-start gap-20">
+      <hr className="pb-14 md:pb-24 opacity-60" />
+      <div className="pb-14 md:pb-24 grid md:grid-cols-footer items-start gap-14">
         <div>
           <div>
             <h4 className="text-2xl">Go to</h4>

@@ -9,7 +9,7 @@ export const WhatIDo = () => {
   return (
     <MainLayout>
       <ContentLayout title="What I do">
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <div className="grid md:grid-cols-2 gap-6">
             {whatIDoHeroItems.map((whatIDoHeroItem) => (
               <div>
@@ -21,7 +21,7 @@ export const WhatIDo = () => {
           </div>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">{principles.title}</h3>
           <div className="grid md:grid-cols-3 gap-6 mt-14 md:gap-y-20">
             {principles.items.map((item) => (
@@ -34,7 +34,7 @@ export const WhatIDo = () => {
           </div>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">{process.title}</h3>
           <div className="grid md:grid-cols-3 gap-6 mt-14 md:gap-y-20">
             {process.items.map((item) => (
@@ -47,7 +47,7 @@ export const WhatIDo = () => {
           </div>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">{methods.title}</h3>
           <div className="grid md:grid-cols-3 gap-6 mt-14">
             {methods.items.map((item) => (
@@ -58,7 +58,7 @@ export const WhatIDo = () => {
           </div>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">{tools.title}</h3>
           <div className="grid grid-cols-3 md:grid-cols-5 mt-10 gap-8 md:gap-y-16">
             {tools.items.map((item) => (

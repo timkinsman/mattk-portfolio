@@ -6,7 +6,7 @@ export const OtherWorks = () => {
   return (
     <MainLayout>
       <ContentLayout title="Other work">
-        <div className="mt-24 grid md:grid-cols-2 gap-6">
+        <div className="mt-14 md:mt-24 grid md:grid-cols-2 gap-6">
           {otherWorks.map((otherWork) => (
             <OtherWorkCard item={otherWork} />
           ))}

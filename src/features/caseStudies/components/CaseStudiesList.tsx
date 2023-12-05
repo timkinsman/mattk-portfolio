@@ -141,7 +141,7 @@ export const CaseStudiesList = () => {
         </div>
       )}
 
-      <div className="mt-12 grid md:grid-cols-2 gap-6">
+      <div className="mt-12 grid md:grid-cols-2 md:gap-6 gap-4">
         {filteredCaseStudies.splice(0, seeMoreCaseStudies ? 999 : 8).map((caseStudy) => (
           <CaseStudyCard item={caseStudy} />
         ))}
@@ -174,21 +174,26 @@ const CaseStudyCard = ({ item }: CaseStudyCardProps) => {
     >
       <div
         style={{ backgroundColor: item.color, color: item.contrastTextColor }}
-        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full p-12 flex items-center justify-center"
+        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full p-4 flex items-center justify-center"
       >
-        {parse(item.icon)}
+        <div className="h-3/5 w-3/5">{parse(item.icon)}</div>
       </div>
 
       <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-4 flex flex-col">
-        <h1 className="text-2xl">{item.title}</h1>
+        <h1 className="md:text-2xl text-xl">{item.title}</h1>
 
-        <h3 className="text-xl mt-2">
+        <h3 className="md:text-xl text-lg mt-2">
           {item.industry.join(', ')} • {item.capability.join(', ')}
         </h3>
 
-        <p className="mt-4">{item.description}</p>
+        <p className="mt-4 md:text-base text-sm hidden md:block">{item.description}</p>
+
         <div className="mt-auto">
-          <Link onClick={(e) => e.stopPropagation()} to={`/case-studies/${item.id}`}>
+          <Link
+            className="md:text-base text-sm"
+            onClick={(e) => e.stopPropagation()}
+            to={`/case-studies/${item.id}`}
+          >
             View case study →
           </Link>
         </div>
