@@ -8,11 +8,11 @@ export const AboutMe = () => {
   return (
     <MainLayout>
       <ContentLayout title="About me">
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h4 className="text-2xl sm:text-3xl">{aboutMeQuote}</h4>
         </div>
 
-        <div className="mt-24 grid md:grid-cols-2 gap-8">
+        <div className="mt-14 md:mt-24 grid md:grid-cols-2 gap-8">
           <div>
             <h3 className="text-2xl">{bio.title}</h3>
 
@@ -22,7 +22,7 @@ export const AboutMe = () => {
           <img src={portrait} className="rounded-2xl" />
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">{education.title}</h3>
           <div className="mt-8 grid md:grid-cols-3 gap-8">
             {education.items.map((item) => (
@@ -35,7 +35,7 @@ export const AboutMe = () => {
           </div>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">{experience.title}</h3>
           <div className="mt-8 grid md:grid-cols-3 gap-8">
             {experience.items.map((item) => (
@@ -55,7 +55,7 @@ export const AboutMe = () => {
 
         <SelectedClients />
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">{awards.title}</h3>
           <div className="mt-8 grid md:grid-cols-3 gap-8">
             {awards.items.map((item) => (
@@ -70,7 +70,7 @@ export const AboutMe = () => {
           </div>
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 md:mt-24">
           <h3 className="text-2xl">Curriculum vitae</h3>
           <div className="mt-8">{parse(curriculumVitaeLink)}</div>
         </div>

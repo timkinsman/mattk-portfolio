@@ -5,7 +5,7 @@ export type BaseEntity = {
 
 export type CaseStudy = {
   id:
-    | 'port-phillip'
+    | 'city-of-port-phillip'
     | 'bank-vic'
     | 'lumea'
     | 'bupa'

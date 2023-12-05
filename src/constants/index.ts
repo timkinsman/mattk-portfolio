@@ -102,7 +102,7 @@ export const landingIds: [
   CaseStudy['id'],
   CaseStudy['id'],
   'content',
-] = ['hero', 'port-phillip', 'bank-vic', 'lumea', 'bupa', 'content'];
+] = ['hero', 'city-of-port-phillip', 'bank-vic', 'lumea', 'bupa', 'content'];
 
 export const testimonials = {
   title: 'Testimonials',

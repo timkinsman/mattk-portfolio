@@ -131,13 +131,13 @@ export const Landing = () => {
           <Panel id={landingIds[4]} />
         </div>
 
-        <div id={landingIds[5]} className="py-20 md:py-28">
+        <div id={landingIds[5]} className="py-14 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">
             <CaseStudiesList />
 
             <SelectedClients />
 
-            <div className="mt-24">
+            <div className="mt-14 md:mt-24">
               <h3 className="text-2xl">{awards.title}</h3>
               <div className="mt-8 grid md:grid-cols-3 gap-8">
                 {awards.items.map((item) => (
@@ -152,7 +152,7 @@ export const Landing = () => {
               </div>
             </div>
 
-            <div className="mt-24">
+            <div className="mt-14 md:mt-24">
               <div className="flex justify-between items-center">
                 <h3 className="text-2xl">{testimonials.title}</h3>
                 <div className="flex gap-2">

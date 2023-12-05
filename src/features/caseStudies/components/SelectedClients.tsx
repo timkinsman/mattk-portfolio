@@ -33,7 +33,7 @@ export const SelectedClients = () => {
   };
 
   return (
-    <div className="mt-24">
+    <div className="mt-14 md:mt-24">
       <h3 className="text-2xl">{selectedClients.title}</h3>
       <div className="relative mt-14">
         <div className="grid grid-cols-2 md:grid-cols-4">
