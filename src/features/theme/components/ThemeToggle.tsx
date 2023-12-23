@@ -20,7 +20,7 @@ export const ThemeToggle = () => {
     <button
       id="theme-toggle"
       type="button"
-      className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+      className="opacity-60 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
       onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
     >
       <svg
