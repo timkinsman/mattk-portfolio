@@ -137,7 +137,7 @@ export const aboutMeQuote =
 export const bio = {
   title: 'Bio',
   description:
-    'I’m Matt, a highly creative multidisciplinary designer who is driven to create products and services that are desirable for people, feasible for development and viable for business. I focus on championing a collaborative approach to validate solutions by employing Boxerse research methods and continuous improvement.\n\nI consider myself to be a rational thinker, attentive listener, measured speaker and team player.',
+    'I’m Matt, a highly creative multidisciplinary designer who is driven to create products and services that are desirable for people, feasible for development and viable for business. I focus on championing a collaborative approach to validate solutions by employing diverse research methods and continuous improvement.\n\nI consider myself to be a rational thinker, attentive listener, measured speaker and team player.',
   image: '',
 };
 
