@@ -53,13 +53,35 @@ export type SocialItem = {
 
 export type Representation =
   | { name: 'VERSA Agency'; to: 'https://versa.agency/' }
-  | { name: '(i.e.,)'; to: 'https://www.ie.com.au/' };
+  | { name: '(i.e.,)'; to: 'https://www.ie.com.au/' }
+  | { name: 'Homely'; to: 'https://www.homely.com.au/' }
+  | { name: 'EatClub'; to: 'https://www.eatclub.com.au/' }
+  | { name: 'AKQA'; to: 'https://www.akqa.com/' }
+  | { name: 'SWEAT'; to: 'https://www.sweat.com/' };
 
-export type Output = 'Intranet' | 'Website';
+export type Output = 'Intranet' | 'Website' | 'App' | 'Assets' | 'Portal' | 'eBooks';
 
-export type Industry = 'Government' | 'Banking & Finance' | 'Sports & Entertainment';
+export type Industry =
+  | 'Government'
+  | 'Banking & Finance'
+  | 'Sports & Entertainment'
+  | 'Legal'
+  | 'Real Estate'
+  | 'Food & Beverage'
+  | 'Health'
+  | 'Sports & Fitness';
 
-export type Capability = 'Strategy' | 'UI/UX' | 'Branding';
+export type Capability =
+  | 'Strategy'
+  | 'UI/UX'
+  | 'Branding'
+  | 'Animation & Motion Graphics'
+  | 'Marketing'
+  | 'Promotional'
+  | 'Wayfinding & Signage'
+  | 'Packaging'
+  | 'Art Direction'
+  | 'Print & Publishing';
 
 export type Method =
   | 'A/B Testing'
