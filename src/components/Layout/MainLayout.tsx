@@ -163,7 +163,7 @@ const Footer = () => {
         <div className="hidden md:block">
           <button
             type="button"
-            className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+            className="opacity-60 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <ArrowUpIcon className={clsx('w-5 h-5')} />
