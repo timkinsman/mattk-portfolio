@@ -14,6 +14,7 @@ import { SelectedClients } from '@/features/caseStudies';
 import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { logger } from '@/utils/logger';
 import { Link } from 'react-router-dom';
+import { FadeInSection } from '@/components/FadeInSection';
 
 const caseStudy1 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[1]);
 const caseStudy2 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[2]);
@@ -109,7 +110,7 @@ export const Landing = () => {
                   document.getElementById(landingIds[1])?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                <ArrowDownIcon color='currentColor' className={'w-5 h-5'} />
+                <ArrowDownIcon color="currentColor" className={'w-5 h-5'} />
               </button>
             </div>
           </div>
@@ -133,56 +134,66 @@ export const Landing = () => {
 
         <div id={landingIds[5]} className="py-14 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">
-            <CaseStudiesList />
+            <FadeInSection>
+              <CaseStudiesList />
+            </FadeInSection>
 
-            <SelectedClients />
+            <FadeInSection>
+              <SelectedClients />
+            </FadeInSection>
 
-            <div className="mt-14 md:mt-24">
-              <h3 className="text-2xl">{awards.title}</h3>
-              <div className="mt-8 grid md:grid-cols-3 gap-8">
-                {awards.items.map((item) => (
-                  <div className="flex items-center gap-4">
-                    {parse(item.icon)}
-                    <div>
-                      <p className="mt-2">{item.title}</p>
-                      <p>{item.description}</p>
+            <FadeInSection>
+              <div className="mt-14 md:mt-24">
+                <h3 className="text-2xl">{awards.title}</h3>
+                <div className="mt-8 grid md:grid-cols-3 gap-8">
+                  {awards.items.map((item) => (
+                    <div className="flex items-center gap-4">
+                      {parse(item.icon)}
+                      <div>
+                        <p className="mt-2">{item.title}</p>
+                        <p>{item.description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-14 md:mt-24">
-              <div className="flex justify-between items-center">
-                <h3 className="text-2xl">{testimonials.title}</h3>
-                <div className="flex gap-2">
-                  {Array.from({ length: testimonials.items.length }, (_v, i) => i).map((index) => (
-                    <button
-                      className={clsx(
-                        'transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5',
-                        {
-                          ['opacity-60 hover:opacity-100 ']: index !== testimonialIndex,
-                        }
-                      )}
-                      onClick={() => {
-                        setTicking(false);
-                        setTestimonialIndex(index);
-                      }}
-                    >
-                      <span className="sr-only">Select testimonial</span>
-                      <CircleFilledIcon fill="currentColor" height={10} width={10} />
-                    </button>
                   ))}
                 </div>
               </div>
-              <div className="mt-8">
-                <div>
-                  <h3 className="text-2xl">{testimonials.items[testimonialIndex].quote}</h3>
-                  <p className="mt-4 opacity-60">{testimonials.items[testimonialIndex].author}</p>
-                  <p className="opacity-60">{testimonials.items[testimonialIndex].position}</p>
+            </FadeInSection>
+
+            <FadeInSection>
+              <div className="mt-14 md:mt-24">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-2xl">{testimonials.title}</h3>
+                  <div className="flex gap-2">
+                    {Array.from({ length: testimonials.items.length }, (_v, i) => i).map(
+                      (index) => (
+                        <button
+                          className={clsx(
+                            'transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5',
+                            {
+                              ['opacity-60 hover:opacity-100 ']: index !== testimonialIndex,
+                            }
+                          )}
+                          onClick={() => {
+                            setTicking(false);
+                            setTestimonialIndex(index);
+                          }}
+                        >
+                          <span className="sr-only">Select testimonial</span>
+                          <CircleFilledIcon fill="currentColor" height={10} width={10} />
+                        </button>
+                      )
+                    )}
+                  </div>
+                </div>
+                <div className="mt-8">
+                  <div>
+                    <h3 className="text-2xl">{testimonials.items[testimonialIndex].quote}</h3>
+                    <p className="mt-4 opacity-60">{testimonials.items[testimonialIndex].author}</p>
+                    <p className="opacity-60">{testimonials.items[testimonialIndex].position}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </FadeInSection>
           </div>
         </div>
 
