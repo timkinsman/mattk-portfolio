@@ -58,7 +58,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
               </ul>
             </div>
           </nav>
-          <main className="flex-1 relative overflow-y-auto focus:outline-none animate-fade-in">
+          <main className="flex-1 relative focus:outline-none animate-fade-in">
             {children}
           </main>
         </div>

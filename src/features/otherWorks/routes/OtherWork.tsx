@@ -1,3 +1,4 @@
+import { FadeInSection } from '@/components/FadeInSection';
 import { ContentLayout, MainLayout } from '@/components/Layout';
 import { otherWorks } from '@/constants/otherWorks';
 import { NotFound } from '@/features/misc';
@@ -60,12 +61,14 @@ export const OtherWork = () => {
       </div>
 
       <ContentLayout title={otherWork.title}>
-        <div className="mt-24">
-          <div
-            className="aspect-video rounded-xl"
-            style={{ backgroundColor: otherWork.color }}
-          ></div>
-        </div>
+        <FadeInSection>
+          <div className="mt-24">
+            <div
+              className="aspect-video rounded-xl"
+              style={{ backgroundColor: otherWork.color }}
+            ></div>
+          </div>
+        </FadeInSection>
       </ContentLayout>
     </MainLayout>
   );

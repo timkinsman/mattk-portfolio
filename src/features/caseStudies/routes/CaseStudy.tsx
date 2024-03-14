@@ -5,6 +5,7 @@ import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { useCallback, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
+import { FadeInSection } from '@/components/FadeInSection';
 
 export const CaseStudy = () => {
   const { id } = useParams();
@@ -61,76 +62,80 @@ export const CaseStudy = () => {
       </div>
 
       <ContentLayout title={caseStudy.title}>
-        <div className="mt-24">
-          <div className="mt-8 grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl">Visit</h3>
-              <div className="mt-2">
-                <a href={caseStudy.visit.to} target="_blank">
-                  {caseStudy.visit.name}
-                </a>
+        <FadeInSection>
+          <div className="mt-24">
+            <div className="mt-8 grid md:grid-cols-3 gap-8">
+              <div>
+                <h3 className="text-xl">Visit</h3>
+                <div className="mt-2">
+                  <a href={caseStudy.visit.to} target="_blank">
+                    {caseStudy.visit.name}
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-xl">Representation</h3>
-              <div className="mt-2">
-                <a href={caseStudy.representation.to} target="_blank">
-                  {caseStudy.representation.name}
-                </a>
+              <div>
+                <h3 className="text-xl">Representation</h3>
+                <div className="mt-2">
+                  <a href={caseStudy.representation.to} target="_blank">
+                    {caseStudy.representation.name}
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-xl">Output</h3>
-              <div className="mt-2">
-                {caseStudy.output.map((output, i) => [
-                  i > 0 && ', ',
-                  <Link to={`/case-studies?q=${output}`}>{output}</Link>,
-                ])}
+              <div>
+                <h3 className="text-xl">Output</h3>
+                <div className="mt-2">
+                  {caseStudy.output.map((output, i) => [
+                    i > 0 && ', ',
+                    <Link to={`/case-studies?q=${output}`}>{output}</Link>,
+                  ])}
+                </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-xl">Industry</h3>
-              <div className="mt-2">
-                {caseStudy.industry.map((industry, i) => [
-                  i > 0 && ', ',
-                  <Link to={`/case-studies?q=${industry}`}>{industry}</Link>,
-                ])}
+              <div>
+                <h3 className="text-xl">Industry</h3>
+                <div className="mt-2">
+                  {caseStudy.industry.map((industry, i) => [
+                    i > 0 && ', ',
+                    <Link to={`/case-studies?q=${industry}`}>{industry}</Link>,
+                  ])}
+                </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-xl">Capability</h3>
-              <div className="mt-2">
-                {caseStudy.capability.map((capability, i) => [
-                  i > 0 && ', ',
-                  <Link to={`/case-studies?q=${capability}`}>{capability}</Link>,
-                ])}
+              <div>
+                <h3 className="text-xl">Capability</h3>
+                <div className="mt-2">
+                  {caseStudy.capability.map((capability, i) => [
+                    i > 0 && ', ',
+                    <Link to={`/case-studies?q=${capability}`}>{capability}</Link>,
+                  ])}
+                </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="text-xl">Method</h3>
-              <div className="mt-2">
-                {caseStudy.method.map((method, i) => [
-                  i > 0 && ', ',
-                  <Link to={`/case-studies?q=${method}`}>{method}</Link>,
-                ])}
+              <div>
+                <h3 className="text-xl">Method</h3>
+                <div className="mt-2">
+                  {caseStudy.method.map((method, i) => [
+                    i > 0 && ', ',
+                    <Link to={`/case-studies?q=${method}`}>{method}</Link>,
+                  ])}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </FadeInSection>
 
-        <div className="mt-24">
-          <div
-            className="aspect-video rounded-xl flex items-center justify-center"
-            style={{ backgroundColor: caseStudy.color }}
-          >
-            <div className="h-3/5 w-3/5">{parse(caseStudy.icon)}</div>
+        <FadeInSection>
+          <div className="mt-24">
+            <div
+              className="aspect-video rounded-xl flex items-center justify-center"
+              style={{ backgroundColor: caseStudy.color }}
+            >
+              <div className="h-3/5 w-3/5">{parse(caseStudy.icon)}</div>
+            </div>
           </div>
-        </div>
+        </FadeInSection>
       </ContentLayout>
     </MainLayout>
   );
