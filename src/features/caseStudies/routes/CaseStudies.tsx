@@ -9,7 +9,7 @@ export const CaseStudies = () => {
       <ContentLayout title="Case studies">
         <FadeInSection>
           <div className="mt-14 md:mt-24">
-            <h4 className="text-xl">{caseStudiesHero}</h4>
+            <h4 className="text-xl max-w-[950px]">{caseStudiesHero}</h4>
           </div>
         </FadeInSection>
 

@@ -19,12 +19,12 @@ export const OtherWorkCard = ({ item }: OtherWorkCardProps) => {
         <img className="w-full" src={item.img} alt={item.title} />
       </div>
 
-      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-4 flex flex-col">
-        <h1 className="md:text-2xl text-xl">{item.title}</h1>
+      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-6 flex flex-col">
+        <h1 className="md:text-3xl text-xl">{item.title}</h1>
 
         <div className="mt-auto">
           <Link
-            className="md:text-base text-sm"
+            className="md:text-xl text-sm"
             onClick={(e) => e.stopPropagation()}
             to={`/other-work/${item.id}`}
           >

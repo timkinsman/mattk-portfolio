@@ -8,6 +8,7 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
 }
 
 code {
@@ -19,7 +20,7 @@ a, .text-btn {
   border-bottom: 2px solid transparent;
   transition-property: opacity, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 1000ms;
 }
 
 a:hover, .text-btn:hover {
@@ -31,7 +32,7 @@ a:hover, .text-btn:hover {
   opacity: 0;
   transform: translateY(10vh);
   visibility: hidden;
-  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+  transition: opacity 2s ease-out, transform 2s ease-out;
   will-change: opacity, visibility;
 }
 .fade-in-section.is-visible {

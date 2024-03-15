@@ -34,7 +34,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
             {/* if mobile */}
             <button
-              className="focus:outline-none lg:hidden opacity-40 hover:opacity-100"
+              className="focus:outline-none min-[1200px]:hidden opacity-40 hover:opacity-100"
               onClick={() => setSidebarOpen(true)}
             >
               <span className="sr-only">Open sidebar</span>
@@ -42,7 +42,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
             </button>
 
             {/* if desktop */}
-            <div className="flex-1 justify-end hidden lg:flex">
+            <div className="flex-1 justify-end hidden min-[1200px]:flex">
               <ul className="flex items-center gap-8">
                 {navigation
                   .filter((item) => item.to !== '/')
@@ -94,13 +94,13 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
             </div>
 
             <div className="py-6">
-              <ul className="flex flex-col gap-6">
+              <ul className="flex flex-col gap-8">
                 {navigation.map((item) => (
                   <div className="w-fit">
                     <Link
                       key={item.name}
                       to={item.to}
-                      className={clsx('text-2xl', { 'opacity-100': location.pathname === item.to })}
+                      className={clsx('text-3xl', { 'opacity-100': location.pathname === item.to })}
                       onClick={() => setSidebarOpen(false)}
                     >
                       {item.name}
@@ -161,10 +161,10 @@ const Footer = () => {
         <div className="hidden md:block">
           <button
             type="button"
-            className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
+            className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-1"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <ArrowUpIcon className={clsx('w-5 h-5')} />
+            <ArrowUpIcon  />
           </button>
         </div>
       </div>

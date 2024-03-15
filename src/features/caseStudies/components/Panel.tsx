@@ -19,7 +19,7 @@ export const Panel = ({ id }: PanelProps) => {
           <div className="max-w-2xl">
             <h2 className="text-2xl">{caseStudy?.title}</h2>
             <p className="text-3xl sm:text-4xl mt-6">{caseStudy?.description}</p>
-            <div className="mt-6">
+            <div className="mt-6 text-xl">
               <Link to={`/case-studies/${id}`}>View case study →</Link>
             </div>
           </div>

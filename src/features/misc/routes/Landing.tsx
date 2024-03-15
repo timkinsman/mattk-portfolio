@@ -15,6 +15,7 @@ import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { logger } from '@/utils/logger';
 import { Link } from 'react-router-dom';
 import { FadeInSection } from '@/components/FadeInSection';
+// import memoji from '@/assets/videos/memoji.mp4';
 
 const caseStudy1 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[1]);
 const caseStudy2 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[2]);
@@ -83,34 +84,41 @@ export const Landing = () => {
       <MainLayout>
         <div className="relative">
           {/* max-w-7xl mx-auto */}
-          <div id={landingIds[0]} className="px-4 sm:px-6 lg:px-24 h-screen grid md:grid-cols-2">
+          <div id={landingIds[0]} className="px-4 sm:px-6 lg:px-24 h-[100dvh] grid md:grid-cols-2">
             <div className="m-auto order-1 md:order-none">
               <h2 className="lg:text-[50px] lg:leading-[72px] text-[28px] leading-[40px]">
-                Hello, my name is <Link to="/about-me">Matthew Kinsman</Link>, I’m a senior product
-                designer currently living in Melbourne and working at{' '}
-                <a href="https://www.mindsethealth.com/" target="_blank">
+                Hello, my name is{' '}
+                <Link to="/about-me" className="md:border-b-[3px]">
+                  Matthew Kinsman
+                </Link>
+                , I’m a senior product designer currently living in Melbourne and working at{' '}
+                <a
+                  href="https://www.mindsethealth.com/"
+                  target="_blank"
+                  className="md:border-b-[3px]"
+                >
                   Mindset Health
                 </a>
                 .
               </h2>
             </div>
 
-            <div className="m-auto text-9xl">{/* 😐 */}</div>
+            {/* <div className="m-auto text-9xl"></div> */}
           </div>
 
           <div className="absolute bottom-0 h-[120px] flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
             <RecentTrack />
 
-            <div className="flex gap-4 ml-auto">
+            <div className="flex gap-2 ml-auto">
               <ThemeToggle />
               <button
                 type="button"
-                className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
+                className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-1"
                 onClick={() =>
                   document.getElementById(landingIds[1])?.scrollIntoView({ behavior: 'smooth' })
                 }
               >
-                <ArrowDownIcon color="currentColor" className={'w-5 h-5'} />
+                <ArrowDownIcon color="currentColor" />
               </button>
             </div>
           </div>
@@ -185,7 +193,7 @@ export const Landing = () => {
                     )}
                   </div>
                 </div>
-                <div className="mt-8">
+                <div key={testimonialIndex} className="mt-8 animate-fade-in">
                   <div className="max-w-[1000px]">
                     <h3 className="text-xl md:text-[28px] md:leading-[40px]">
                       {testimonials.items[testimonialIndex].quote}

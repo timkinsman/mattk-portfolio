@@ -142,8 +142,10 @@ export const CaseStudiesList = () => {
       )}
 
       <div className="mt-12 grid md:grid-cols-2 md:gap-6 gap-4">
-        {filteredCaseStudies.splice(0, seeMoreCaseStudies ? 999 : 8).map((caseStudy) => (
-          <CaseStudyCard item={caseStudy} />
+        {filteredCaseStudies.slice(0, seeMoreCaseStudies ? 999 : 8).map((caseStudy) => (
+          <div className='animate-fade-in'>
+            <CaseStudyCard item={caseStudy} />
+          </div>
         ))}
       </div>
 
@@ -165,7 +167,7 @@ type CaseStudyCardProps = {
   item: CaseStudy;
 };
 
-const CaseStudyCard = ({ item }: CaseStudyCardProps) => {
+export const CaseStudyCard = ({ item }: CaseStudyCardProps) => {
   const navigate = useNavigate();
   return (
     <div

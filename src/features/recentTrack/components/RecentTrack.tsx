@@ -31,9 +31,9 @@ export const RecentTrack = () => {
 
   if (token.isLoading || recentTracks.isLoading || tracks.isLoading) {
     return (
-      <div role="status" className="inline-flex gap-2 items-center max-w-sm animate-pulse">
-        <div className="h-7 bg-gray-200 rounded-full dark:bg-gray-700 w-6"></div>
-        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-48"></div>
+      <div role="status" className="inline-flex gap-4 items-center max-w-sm animate-pulse">
+        <div className="h-7 bg-black rounded-full dark:bg-white w-7 opacity-10"></div>
+        <div className="h-2 bg-black rounded-full dark:bg-white w-80 opacity-10"></div>
       </div>
     );
   }
@@ -41,14 +41,14 @@ export const RecentTrack = () => {
   if (!token.data || !recentTracks.data || !tracks.data) return null;
 
   return (
-    <div className="inline-flex gap-4 items-center overflow-auto">
+    <div className="inline-flex gap-4 items-center overflow-auto animate-fade-in">
       <span className="relative shrink-0">
         {/* todo: see if i can get this working with overflow auto */}
         {/* <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#1DB954] opacity-75"></span> */}
         <img src={spotifyMark} alt="Spotify logo" className="h-7 w-7" />
       </span>
 
-      <span className="text-xl whitespace-nowrap w-full overflow-hidden overflow-ellipsis">
+      <span className="text-xl md:text-2xl whitespace-nowrap w-full overflow-hidden overflow-ellipsis">
         <span className="hidden md:inline">Currently listening to </span>
         <a href={(track ?? fallbackTrack).uri} target="_blank">
           {formatTrack(track ?? fallbackTrack)}

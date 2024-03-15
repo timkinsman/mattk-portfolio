@@ -26,10 +26,11 @@ export const ThemeToggle = () => {
       <svg
         viewBox="0 0 48 48"
         xmlns="http://www.w3.org/2000/svg"
+        height="52"
+        width="52"
         fill="none"
         stroke="currentColor"
-        id="theme-toggle-light-icon"
-        className={clsx('w-5 h-5', { hidden: !isDarkTheme })}
+        className={clsx('', { hidden: !isDarkTheme })}
       >
         <path
           d="M6.40039 24H9.60039"
@@ -86,14 +87,15 @@ export const ThemeToggle = () => {
           stroke-linejoin="round"
         ></path>
       </svg>
-
       <svg
-        id="theme-toggle-dark-icon"
         viewBox="0 0 48 48"
-        className={clsx('w-5 h-5', { hidden: isDarkTheme })}
         xmlns="http://www.w3.org/2000/svg"
+        height="52"
+        width="52"
         fill="none"
         stroke="currentColor"
+        className={clsx('', { hidden: isDarkTheme })}
+        // style="position: absolute; top: 0px; left: 0px; opacity: 0; : opacity 1s ease 0s;"
       >
         <path
           d="M35.2 28.7996C26.4 28.7996 19.2 21.5996 19.2 12.7996C19.2 11.3596 19.44 9.91957 19.76 8.55957C12.96 10.3996 8 16.6396 8 23.9996C8 32.7996 15.2 39.9996 24 39.9996C31.36 39.9996 37.6 35.0396 39.44 28.2396C38.08 28.5596 36.64 28.7996 35.2 28.7996Z"

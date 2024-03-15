@@ -19,7 +19,6 @@ export const Contact = () => {
 
         <FadeInSection>
           <div className="mt-14 md:mt-24">
-            <h3 className="text-2xl">{details.title}</h3>
             <div className="grid md:grid-cols-3 gap-8 mt-10">
               {details.items.map((detailItem) => (
                 <div>
