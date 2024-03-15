@@ -109,7 +109,7 @@ export const Landing = () => {
           <div className="absolute bottom-0 h-[120px] flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
             <RecentTrack />
 
-            <div className="flex gap-2 ml-auto">
+            <div className="gap-2 ml-auto hidden md:flex">
               <ThemeToggle />
               <button
                 type="button"
