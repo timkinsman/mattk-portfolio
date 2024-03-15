@@ -85,7 +85,7 @@ export const AboutMe = () => {
 
         <FadeInSection>
           <div className="mt-14 md:mt-24">
-            <h3 className="text-2xl">Curriculum vitae</h3>
+            <h3 className="text-2xl">Curriculum Vitae</h3>
             <div className="mt-8 text-xl">{parse(curriculumVitaeLink)}</div>
           </div>
         </FadeInSection>
