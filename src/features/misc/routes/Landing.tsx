@@ -124,19 +124,19 @@ export const Landing = () => {
           </div>
         </div>
 
-        <div id={landingIds[1]} ref={refPanel1} className="h-screen flex">
+        <div id={landingIds[1]} ref={refPanel1} className="h-[100dvh] flex">
           <Panel id={landingIds[1]} />
         </div>
 
-        <div id={landingIds[2]} ref={refPanel2} className="h-screen flex">
+        <div id={landingIds[2]} ref={refPanel2} className="h-[100dvh] flex">
           <Panel id={landingIds[2]} />
         </div>
 
-        <div id={landingIds[3]} ref={refPanel3} className="h-screen flex">
+        <div id={landingIds[3]} ref={refPanel3} className="h-[100dvh] flex">
           <Panel id={landingIds[3]} />
         </div>
 
-        <div id={landingIds[4]} ref={refPanel4} className="h-screen flex">
+        <div id={landingIds[4]} ref={refPanel4} className="h-[100dvh] flex">
           <Panel id={landingIds[4]} />
         </div>
 

@@ -5,7 +5,6 @@ import { QueryClientProvider } from 'react-query';
 // import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Button } from '@/components/Elements';
 import { Notifications } from '@/components/Notifications/Notifications';
 import { queryClient } from '@/lib/react-query';
 import { FadeInSection } from '@/components/FadeInSection';
@@ -13,14 +12,11 @@ import { FadeInSection } from '@/components/FadeInSection';
 const ErrorFallback = () => {
   return (
     <div
-      className="flex items-center justify-center w-screen h-screen bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white"
+      className="flex items-center justify-center w-screen h-[100dvh] bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white"
       role="alert"
     >
       <div className="text-center flex flex-col items-center animate-fade-in">
         <h2 className="text-xl">Sorry, an unexpected error occurred.</h2>
-        <Button className="mt-4" onClick={() => window.location.assign(window.location.origin)}>
-          Refresh
-        </Button>
       </div>
     </div>
   );
@@ -34,7 +30,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <React.Suspense
       fallback={
-        <div className="flex items-center justify-center w-screen h-screen bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white">
+        <div className="flex items-center justify-center w-screen h-[100dvh] bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white">
           <FadeInSection>
             <div className="text-center animate-fade-in">
               <h3 className="text-xl">Matthew Kinsman Portfolio</h3>

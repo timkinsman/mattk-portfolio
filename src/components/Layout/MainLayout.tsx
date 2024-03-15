@@ -23,7 +23,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       id="container"
       className="bg-[#F5F5F5] dark:bg-[#0b0b0c] text-black dark:text-white transition-all duration-300"
     >
-      <div className="min-h-screen flex overflow-hidden">
+      <div className="min-h-[100dvh] flex overflow-hidden">
         {/* <MobileSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
         {/* <Sidebar /> */}
         <div className="flex flex-col w-0 flex-1 overflow-hidden">

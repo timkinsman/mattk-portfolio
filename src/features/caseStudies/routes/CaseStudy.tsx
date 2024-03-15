@@ -63,7 +63,7 @@ export const CaseStudy = () => {
   return (
     <MainLayout>
       <div className="relative">
-        <div ref={refPanel} className="px-4 sm:px-6 lg:px-24 h-screen flex">
+        <div ref={refPanel} className="px-4 sm:px-6 lg:px-24 h-[100dvh] flex">
           <div className="m-auto">
             <h2 className="text-[28px]">{caseStudy?.hero}</h2>
           </div>
