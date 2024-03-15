@@ -21,20 +21,20 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div
       id="container"
-      className="bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white transition-all duration-300"
+      className="bg-[#F5F5F5] dark:bg-[#0b0b0c] text-black dark:text-white transition-all duration-300"
     >
       <div className="min-h-screen flex overflow-hidden">
         {/* <MobileSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
         {/* <Sidebar /> */}
         <div className="flex flex-col w-0 flex-1 overflow-hidden">
-          <nav className="absolute z-10 flex-shrink-0 flex items-center h-16 left-0 right-0 px-4 sm:px-6 lg:px-24 justify-between">
+          <nav className="absolute z-10 flex-shrink-0 flex items-center h-[120px] left-0 right-0 px-4 sm:px-6 lg:px-24 justify-between text-xl md:text-2xl">
             <Link to="/" className={clsx({ 'opacity-100': location.pathname === '/' })}>
               Matthew Kinsman
             </Link>
 
             {/* if mobile */}
             <button
-              className="focus:outline-none md:hidden opacity-60 hover:opacity-100"
+              className="focus:outline-none lg:hidden opacity-40 hover:opacity-100"
               onClick={() => setSidebarOpen(true)}
             >
               <span className="sr-only">Open sidebar</span>
@@ -42,7 +42,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
             </button>
 
             {/* if desktop */}
-            <div className="flex-1 justify-end hidden md:flex">
+            <div className="flex-1 justify-end hidden lg:flex">
               <ul className="flex items-center gap-8">
                 {navigation
                   .filter((item) => item.to !== '/')
@@ -58,9 +58,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
               </ul>
             </div>
           </nav>
-          <main className="flex-1 relative focus:outline-none animate-fade-in">
-            {children}
-          </main>
+          <main className="flex-1 relative focus:outline-none animate-fade-in">{children}</main>
         </div>
 
         <div
@@ -74,7 +72,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
             <div className="flex items-center h-16">
               <div className="ml-auto flex">
                 <button
-                  className="opacity-60 hover:opacity-100"
+                  className="opacity-40 hover:opacity-100"
                   onClick={() => setSidebarOpen(false)}
                 >
                   <svg
@@ -123,8 +121,8 @@ const Footer = () => {
   const location = useLocation();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-24">
-      <hr className="pb-14 md:pb-24 opacity-60" />
+    <div className="max-w-[1392px] mx-auto px-4 sm:px-6 lg:px-24">
+      <hr className="pb-14 md:pb-24 opacity-10 border-inherit" />
       <div className="pb-14 md:pb-24 grid md:grid-cols-footer items-start gap-14">
         <div>
           <div>
@@ -136,7 +134,7 @@ const Footer = () => {
                 <Link
                   key={item.name}
                   to={item.to}
-                  className={clsx({ 'opacity-100': location.pathname === item.to })}
+                  className={clsx({ 'opacity-100': location.pathname === item.to }, 'text-xl')}
                 >
                   {item.name}
                 </Link>
@@ -152,7 +150,7 @@ const Footer = () => {
           <div className="grid grid-cols-2 mt-8 gap-8">
             {socialItems.map((item) => (
               <div>
-                <a key={item.name} href={item.to} target="_blank">
+                <a key={item.name} href={item.to} target="_blank" className="text-xl">
                   {item.name}
                 </a>
               </div>
@@ -163,14 +161,14 @@ const Footer = () => {
         <div className="hidden md:block">
           <button
             type="button"
-            className="opacity-60 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
+            className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <ArrowUpIcon className={clsx('w-5 h-5')} />
           </button>
         </div>
       </div>
-      <div className="pb-8 md:pb-28 grid md:grid-cols-footer items-center gap-4 md:gap-8">
+      <div className="pb-8 md:pb-28 grid md:grid-cols-footer items-center gap-4 md:gap-8 md:text-xl">
         <p className="md:-order-none order-1">
           © {new Date().getFullYear()} Matthew Kinsman, Melbourne, Australia
         </p>

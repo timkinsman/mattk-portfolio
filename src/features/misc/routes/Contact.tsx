@@ -24,8 +24,8 @@ export const Contact = () => {
               {details.items.map((detailItem) => (
                 <div>
                   <h4 className="text-4xl">{detailItem.icon}</h4>
-                  <p className="mt-4">{detailItem.title}</p>
-                  <div className="mt-6">{parse(detailItem.link)}</div>
+                  <p className="mt-6 text-2xl">{detailItem.title}</p>
+                  <div className="mt-2 text-xl">{parse(detailItem.link)}</div>
                 </div>
               ))}
             </div>

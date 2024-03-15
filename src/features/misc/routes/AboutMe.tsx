@@ -11,13 +11,13 @@ export const AboutMe = () => {
       <ContentLayout title="About me">
         <FadeInSection>
           <div className="mt-14 md:mt-24">
-            <h4 className="text-2xl sm:text-3xl">{aboutMeQuote}</h4>
+            <h4 className="text-xl md:text-[28px] md:leading-10">{aboutMeQuote}</h4>
           </div>
         </FadeInSection>
 
         <FadeInSection>
           <div className="mt-14 md:mt-24 grid md:grid-cols-2 gap-8">
-            <div>
+            <div className="order-last md:order-first">
               <h3 className="text-2xl">{bio.title}</h3>
 
               <p className="text-xl mt-8 whitespace-pre-line">{bio.description}</p>
@@ -86,7 +86,7 @@ export const AboutMe = () => {
         <FadeInSection>
           <div className="mt-14 md:mt-24">
             <h3 className="text-2xl">Curriculum vitae</h3>
-            <div className="mt-8">{parse(curriculumVitaeLink)}</div>
+            <div className="mt-8 text-xl">{parse(curriculumVitaeLink)}</div>
           </div>
         </FadeInSection>
       </ContentLayout>

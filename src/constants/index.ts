@@ -15,31 +15,7 @@ export const socialItems: SocialItem[] = [
   {
     name: 'Email',
     to: 'mailto:mskinsm@gmail.com',
-    icon: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_461_19503)">
-<path d="M3.60151 9.6V14.5C3.60151 15.2 4.4015 15.5 4.9015 15L7.2015 12.3L11.9015 15.8C12.3015 16.1 12.9015 15.9 13.0015 15.4L16.0015 0.9C16.1015 0.3 15.6015 -0.1 15.0015 0.0999996L0.501505 5.9C0.00150541 6.1 -0.0984946 6.8 0.301505 7.2L1.90151 8.4L6.5015 6.2C6.9015 6 7.20151 6.5 6.9015 6.7L3.60151 9.6Z" fill="currentColor"/>
-</g>
-<defs>
-<clipPath id="clip0_461_19503">
-<rect width="16" height="16" fill="currentColor"/>
-</clipPath>
-</defs>
-</svg>
-`,
-  },
-  {
-    name: 'Facebook',
-    to: 'https://www.facebook.com/mskinsm/',
-    icon: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_461_19514)">
-<path d="M16 8.048C16.0003 6.51909 15.5625 5.02209 14.7385 3.73428C13.9144 2.44646 12.7385 1.42176 11.3501 0.781504C9.96173 0.141247 8.41893 -0.0877481 6.90442 0.121632C5.38991 0.331013 3.96712 0.969999 2.80451 1.96293C1.6419 2.95586 0.788165 4.26115 0.344396 5.72425C-0.0993733 7.18735 -0.114591 8.74697 0.300544 10.2184C0.71568 11.6899 1.54378 13.0116 2.68679 14.027C3.82981 15.0425 5.23986 15.7091 6.75 15.948V10.36H4.719V8.048H6.75V6.285C6.70627 5.87345 6.7536 5.45731 6.88863 5.06609C7.02366 4.67487 7.24309 4.31814 7.53136 4.02118C7.81964 3.72422 8.1697 3.49431 8.55674 3.34773C8.94379 3.20115 9.35833 3.1415 9.771 3.173C10.371 3.18088 10.9696 3.23302 11.562 3.329V5.3H10.554C10.3823 5.27755 10.2077 5.29399 10.0432 5.34812C9.87874 5.40224 9.72853 5.49266 9.6037 5.61269C9.47887 5.73271 9.38263 5.87927 9.3221 6.04152C9.26157 6.20376 9.23829 6.37754 9.254 6.55V8.05H11.473L11.118 10.362H9.25V15.953C11.1322 15.6552 12.8464 14.6954 14.0838 13.2462C15.3213 11.797 16.0008 9.95364 16 8.048Z" fill="currentColor"/>
-</g>
-<defs>
-<clipPath id="clip0_461_19514">
-<rect width="16" height="16" fill="currentColor"/>
-</clipPath>
-</defs>
-</svg>
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 24 24"><path d="M12.042 23.648c-7.813 0-12.042-4.876-12.042-11.171 0-6.727 4.762-12.125 13.276-12.125 6.214 0 10.724 4.038 10.724 9.601 0 8.712-10.33 11.012-9.812 6.042-.71 1.108-1.854 2.354-4.053 2.354-2.516 0-4.08-1.842-4.08-4.807 0-4.444 2.921-8.199 6.379-8.199 1.659 0 2.8.876 3.277 2.221l.464-1.632h2.338c-.244.832-2.321 8.527-2.321 8.527-.648 2.666 1.35 2.713 3.122 1.297 3.329-2.58 3.501-9.327-.998-12.141-4.821-2.891-15.795-1.102-15.795 8.693 0 5.611 3.95 9.381 9.829 9.381 3.436 0 5.542-.93 7.295-1.948l1.177 1.698c-1.711.966-4.461 2.209-8.78 2.209zm-2.344-14.305c-.715 1.34-1.177 3.076-1.177 4.424 0 3.61 3.522 3.633 5.252.239.712-1.394 1.171-3.171 1.171-4.529 0-2.917-3.495-3.434-5.246-.134z"/></svg>
 `,
   },
   {
@@ -72,6 +48,21 @@ export const socialItems: SocialItem[] = [
 </g>
 <defs>
 <clipPath id="clip0_461_19511">
+<rect width="16" height="16" fill="currentColor"/>
+</clipPath>
+</defs>
+</svg>
+`,
+  },
+  {
+    name: 'Facebook',
+    to: 'https://www.facebook.com/mskinsm/',
+    icon: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_461_19514)">
+<path d="M16 8.048C16.0003 6.51909 15.5625 5.02209 14.7385 3.73428C13.9144 2.44646 12.7385 1.42176 11.3501 0.781504C9.96173 0.141247 8.41893 -0.0877481 6.90442 0.121632C5.38991 0.331013 3.96712 0.969999 2.80451 1.96293C1.6419 2.95586 0.788165 4.26115 0.344396 5.72425C-0.0993733 7.18735 -0.114591 8.74697 0.300544 10.2184C0.71568 11.6899 1.54378 13.0116 2.68679 14.027C3.82981 15.0425 5.23986 15.7091 6.75 15.948V10.36H4.719V8.048H6.75V6.285C6.70627 5.87345 6.7536 5.45731 6.88863 5.06609C7.02366 4.67487 7.24309 4.31814 7.53136 4.02118C7.81964 3.72422 8.1697 3.49431 8.55674 3.34773C8.94379 3.20115 9.35833 3.1415 9.771 3.173C10.371 3.18088 10.9696 3.23302 11.562 3.329V5.3H10.554C10.3823 5.27755 10.2077 5.29399 10.0432 5.34812C9.87874 5.40224 9.72853 5.49266 9.6037 5.61269C9.47887 5.73271 9.38263 5.87927 9.3221 6.04152C9.26157 6.20376 9.23829 6.37754 9.254 6.55V8.05H11.473L11.118 10.362H9.25V15.953C11.1322 15.6552 12.8464 14.6954 14.0838 13.2462C15.3213 11.797 16.0008 9.95364 16 8.048Z" fill="currentColor"/>
+</g>
+<defs>
+<clipPath id="clip0_461_19514">
 <rect width="16" height="16" fill="currentColor"/>
 </clipPath>
 </defs>
@@ -251,50 +242,50 @@ export const whatIDoHeroItems = [
   },
 ];
 
-export const principles = {
-  title: 'Principles',
+export const process = {
+  title: 'Process',
   items: [
     {
       icon: '♟️',
-      title: 'Strategise',
+      title: '1. Strategise',
       description:
         'If you’re trying to find somewhere new, the first thing you’ll need is a good map. Working in digital, things change; quickly and often. You need to be able to adapt. A strategy is a doable process that’s less a rigid plan, and more like a vision of what to achieve and ways in which you could start actioning it.',
     },
     {
       icon: '🔬',
-      title: 'Research',
+      title: '2. Research',
       description:
         'Understanding your target audience is the key to knowing how to best communicate with them. Reading, observing and listening are your superpowers here – use them. Absorb the critical information detailing what their needs, perceptions and behaviours are and where their pain points lie.',
     },
     {
       icon: '🔎',
-      title: 'Analyse',
+      title: '3. Analyse',
       description:
         'By this point you should have the lie of the land. You’ll then need to synthesise and distil the information so it can be easier managed and interpreted into insights, themes and opportunity areas. One or more problems should be defined and framed so that you can formulate a prioritized approach.',
     },
     {
       icon: '💡',
-      title: 'Ideate',
+      title: '4. Ideate',
       description:
         'Things will begin to take shape. You and your team using a divergent mindset will brainstorm concepts and potential solutions. This is where you will see utilising different perspectives thrives. The end-user is kept front of mind or may join in collaboration to ensure a level of confidence that output is desirable.',
     },
     {
       icon: '🏗️',
-      title: 'Materialise',
+      title: '5. Materialise',
       description:
         'After arriving at a point democratically whereby a solution has been amalgamated together and agreed upon. The concept becomes more tangible and realised. It’s higher fidelity and can be understood functionally as if it were a precursor for the final solution. Its feasibility and viability is assessed.',
     },
     {
       icon: '🧪',
-      title: 'Test',
+      title: '6. Test',
       description:
         'It’s ready to be released into the wild, preferably before it can fend for itself. By working in an agile manner you and your team work quickly to identify faults by getting it in front of relevant users. Incrementally working towards something that is ideally infallible. By working this way you reduce risk.',
     },
   ],
 };
 
-export const process = {
-  title: 'Process',
+export const principle = {
+  title: 'Principles',
   items: [
     {
       icon: '🤔',
@@ -336,7 +327,7 @@ export const process = {
 };
 
 export const methods = {
-  title: 'Methods',
+  title: 'Research Methods',
   items: [
     'A/B Testing',
     'Artefact Review',

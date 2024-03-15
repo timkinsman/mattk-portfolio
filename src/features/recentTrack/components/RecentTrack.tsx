@@ -32,7 +32,7 @@ export const RecentTrack = () => {
   if (token.isLoading || recentTracks.isLoading || tracks.isLoading) {
     return (
       <div role="status" className="inline-flex gap-2 items-center max-w-sm animate-pulse">
-        <div className="h-6 bg-gray-200 rounded-full dark:bg-gray-700 w-6"></div>
+        <div className="h-7 bg-gray-200 rounded-full dark:bg-gray-700 w-6"></div>
         <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-48"></div>
       </div>
     );
@@ -45,16 +45,15 @@ export const RecentTrack = () => {
       <span className="relative shrink-0">
         {/* todo: see if i can get this working with overflow auto */}
         {/* <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#1DB954] opacity-75"></span> */}
-        <img src={spotifyMark} alt="Spotify logo" className="h-6 w-6" />
+        <img src={spotifyMark} alt="Spotify logo" className="h-7 w-7" />
       </span>
 
-      <a
-        href={(track ?? fallbackTrack).uri}
-        target="_blank"
-        className="whitespace-nowrap w-full overflow-hidden overflow-ellipsis"
-      >
-        {formatTrack(track ?? fallbackTrack)}
-      </a>
+      <span className="text-xl whitespace-nowrap w-full overflow-hidden overflow-ellipsis">
+        <span className="hidden md:inline">Currently listening to </span>
+        <a href={(track ?? fallbackTrack).uri} target="_blank">
+          {formatTrack(track ?? fallbackTrack)}
+        </a>
+      </span>
     </div>
   );
 };

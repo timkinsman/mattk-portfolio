@@ -91,18 +91,18 @@ export const CaseStudiesList = () => {
 
   return (
     <div>
-      <div className="flex justify-between gap-6 md:gap-8 flex-wrap">
-        <div className="flex gap-6 md:gap-8 flex-wrap">
+      <div className="flex justify-between gap-6 md:gap-8 flex-wrap text-xl">
+        <div className="flex gap-6 md:gap-8 flex-wrap ">
           <p>Filter by</p>
           <p>/</p>
           {filters.map((filter) => (
             <div>
               <button
                 onClick={() => setShowFilter(filter === showFilter ? undefined : filter)}
-                className={clsx('text-btn')}
+                className={clsx('text-btn !border-b-0')}
                 style={{ opacity: filter === showFilter ? 1 : undefined }}
               >
-                {`${formatFilter(filter)} ${showFilter === filter ? '↑' : '↓'}`}
+                {`${formatFilter(filter)} ${showFilter === filter ? '↓' : '↑'}`}
               </button>
             </div>
           ))}
@@ -115,7 +115,7 @@ export const CaseStudiesList = () => {
                 setShowFilter(undefined);
                 setActiveFilters([]);
               }}
-              className="text-btn"
+              className="text-btn !border-b-0"
             >
               Clear ✕
             </button>
@@ -153,7 +153,7 @@ export const CaseStudiesList = () => {
             className="text-btn text-xl flex items-center gap-2"
             onClick={() => setSeeMoreProjects(!seeMoreCaseStudies)}
           >
-            See {seeMoreCaseStudies ? 'less' : 'more'} case studies {seeMoreCaseStudies ? '↑' : '↓'}
+            See {seeMoreCaseStudies ? 'less' : 'more'}
           </button>
         </div>
       )}
@@ -179,18 +179,19 @@ const CaseStudyCard = ({ item }: CaseStudyCardProps) => {
         <div className="h-3/5 w-3/5">{parse(item.icon)}</div>
       </div>
 
-      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-4 flex flex-col">
-        <h1 className="md:text-2xl text-xl">{item.title}</h1>
+      <div className="dark:bg-black bg-white absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full h-full p-6 flex flex-col">
+        <h1 className="md:text-3xl text-xl">{item.title}</h1>
 
-        <h3 className="md:text-xl text-lg mt-2">
-          {item.industry.join(', ')} • {item.capability.join(', ')}
+        <h3 className="md:text-xl text-lg mt-2 opacity-80">
+          {item.industry.join(', ')}
+          {/* • {item.capability.join(', ')} */}
         </h3>
 
-        <p className="mt-4 md:text-base text-sm hidden md:block">{item.description}</p>
+        <p className="mt-4 md:text-base text-sm hidden md:block opacity-80">{item.description}</p>
 
         <div className="mt-auto">
           <Link
-            className="md:text-base text-sm"
+            className="md:text-xl text-sm"
             onClick={(e) => e.stopPropagation()}
             to={`/case-studies/${item.id}`}
           >

@@ -85,7 +85,7 @@ export const Landing = () => {
           {/* max-w-7xl mx-auto */}
           <div id={landingIds[0]} className="px-4 sm:px-6 lg:px-24 h-screen grid md:grid-cols-2">
             <div className="m-auto order-1 md:order-none">
-              <h2 className="text-3xl sm:text-5xl md:leading-[56px]">
+              <h2 className="lg:text-[50px] lg:leading-[72px] text-[28px] leading-[40px]">
                 Hello, my name is <Link to="/about-me">Matthew Kinsman</Link>, I’m a senior product
                 designer currently living in Melbourne and working at{' '}
                 <a href="https://www.mindsethealth.com/" target="_blank">
@@ -98,14 +98,14 @@ export const Landing = () => {
             <div className="m-auto text-9xl">{/* 😐 */}</div>
           </div>
 
-          <div className="absolute bottom-0 h-16 flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
+          <div className="absolute bottom-0 h-[120px] flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
             <RecentTrack />
 
             <div className="flex gap-4 ml-auto">
               <ThemeToggle />
               <button
                 type="button"
-                className="opacity-60 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
+                className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
                 onClick={() =>
                   document.getElementById(landingIds[1])?.scrollIntoView({ behavior: 'smooth' })
                 }
@@ -133,7 +133,7 @@ export const Landing = () => {
         </div>
 
         <div id={landingIds[5]} className="py-14 md:py-28">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">
+          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 lg:px-24">
             <FadeInSection>
               <CaseStudiesList />
             </FadeInSection>
@@ -170,7 +170,7 @@ export const Landing = () => {
                           className={clsx(
                             'transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5',
                             {
-                              ['opacity-60 hover:opacity-100 ']: index !== testimonialIndex,
+                              ['opacity-40 hover:opacity-100 ']: index !== testimonialIndex,
                             }
                           )}
                           onClick={() => {
@@ -186,10 +186,12 @@ export const Landing = () => {
                   </div>
                 </div>
                 <div className="mt-8">
-                  <div>
-                    <h3 className="text-2xl">{testimonials.items[testimonialIndex].quote}</h3>
-                    <p className="mt-4 opacity-60">{testimonials.items[testimonialIndex].author}</p>
-                    <p className="opacity-60">{testimonials.items[testimonialIndex].position}</p>
+                  <div className="max-w-[1000px]">
+                    <h3 className="text-xl md:text-[28px] md:leading-[40px]">
+                      {testimonials.items[testimonialIndex].quote}
+                    </h3>
+                    <p className="mt-4 opacity-80">{testimonials.items[testimonialIndex].author}</p>
+                    <p className="opacity-80">{testimonials.items[testimonialIndex].position}</p>
                   </div>
                 </div>
               </div>
@@ -215,7 +217,7 @@ export const Landing = () => {
         <div className="fixed right-0 lg:flex flex-col gap-2 z-10 inset-y-0 my-auto h-fit hidden w-24 items-center">
           {landingIds.map((landingId) => (
             <button
-              className="opacity-60 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
+              className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-2.5"
               onClick={() =>
                 document.getElementById(landingId)?.scrollIntoView({ behavior: 'smooth' })
               }

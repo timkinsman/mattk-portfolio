@@ -437,8 +437,8 @@ export const caseStudies: CaseStudy[] = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla cursus erat nec orci tincidunt, eu posuere orci semper.',
     hero: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla cursus erat nec orci tincidunt, eu posuere orci semper.',
-    color: '#EB264E',
-    contrastTextColor: getContrastTextColor('#EB264E'),
+    color: '#E54439',
+    contrastTextColor: getContrastTextColor('#E54439'),
     visit: { name: 'eatclub.com.au', to: 'https://www.eatclub.com.au' },
     representation: { name: 'EatClub', to: 'https://www.eatclub.com.au/' },
     output: ['Website', 'App', 'Assets'],

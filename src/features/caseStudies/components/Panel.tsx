@@ -16,7 +16,7 @@ export const Panel = ({ id }: PanelProps) => {
     <div id={id} className={clsx('px-4 sm:px-6 lg:px-24 w-full flex items-end')}>
       <div className="py-8 md:py-28 grid md:grid-cols-2 gap-8">
         <FadeInSection>
-          <div>
+          <div className="max-w-2xl">
             <h2 className="text-2xl">{caseStudy?.title}</h2>
             <p className="text-3xl sm:text-4xl mt-6">{caseStudy?.description}</p>
             <div className="mt-6">
