@@ -1,5 +1,9 @@
 import { CaseStudy } from '@/types';
 import { getContrastTextColor } from '@/utils/getContrastTextColor';
+import cityOfPortPhillipGif from '@/assets/gifs/city-of-port-phillip.gif';
+import bupaGif from '@/assets/gifs/bupa.gif';
+import bankVicGif from '@/assets/gifs/bank-vic.gif';
+import lumeaGif from '@/assets/gifs/lumea.gif';
 
 export const caseStudies: CaseStudy[] = [
   {
@@ -52,6 +56,7 @@ export const caseStudies: CaseStudy[] = [
       'Stakeholder Interviews',
       'User Interviews',
     ],
+    gifSrc: cityOfPortPhillipGif,
   },
   {
     id: 'bank-vic',
@@ -99,6 +104,7 @@ export const caseStudies: CaseStudy[] = [
       'User Interviews',
       'IA: Card Sorting',
     ],
+    gifSrc: bankVicGif,
   },
   {
     id: 'lumea',
@@ -124,6 +130,7 @@ export const caseStudies: CaseStudy[] = [
     industry: [],
     capability: [],
     method: [],
+    gifSrc: lumeaGif,
   },
   {
     id: 'bupa',
@@ -154,6 +161,7 @@ export const caseStudies: CaseStudy[] = [
     industry: [],
     capability: [],
     method: [],
+    gifSrc: bupaGif,
   },
   {
     id: 'beyond-blue',

@@ -24,6 +24,9 @@ export default {
           '20%, 100%': { opacity: 1 },
         },
       },
+      height: {
+        screen: ['100vh', '100dvh'],
+      },
     },
     transitionDuration: {
       DEFAULT: '1000ms',

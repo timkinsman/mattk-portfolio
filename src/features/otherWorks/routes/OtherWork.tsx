@@ -3,13 +3,19 @@ import { ContentLayout, MainLayout } from '@/components/Layout';
 import { otherWorks } from '@/constants/otherWorks';
 import { NotFound } from '@/features/misc';
 import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { OtherWorkCard } from '../components/OtherWork';
+import clsx from 'clsx';
+import ArrowDownIcon from '@/assets/arrow-down.svg?react';
 
 export const OtherWork = () => {
   const { id } = useParams();
 
   const refPanel = useRef<HTMLDivElement>(null);
+  const refContent = useRef<HTMLDivElement>(null);
+
+  const [seeMoreWorks, setSeeMoreWorks] = useState(false);
 
   const otherWork = otherWorks.find((cs) => cs.id === id);
 
@@ -52,24 +58,71 @@ export const OtherWork = () => {
     return <NotFound />;
   }
 
+  const allOtherWorks = otherWorks.filter((item) => item.id !== otherWork.id);
+
   return (
     <MainLayout>
-      <div ref={refPanel} className="px-4 sm:px-6 lg:px-24 h-[100dvh] flex">
-        <div className="m-auto">
-          <h2 className="text-[28px]">{otherWork?.hero}</h2>
+      <div className="relative">
+        <div ref={refPanel} className="px-4 sm:px-6 lg:px-24 h-screen flex">
+          <div className="m-auto">
+            <h2 className="text-[28px] max-w-[1392px] px-4 sm:px-6 lg:px-24">{otherWork?.hero}</h2>
+          </div>
+
+          <div className="absolute bottom-0 left-0 h-[120px] flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
+            <div className="flex gap-2 ml-auto">
+              <button
+                type="button"
+                className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-1"
+                onClick={() => refContent.current?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                <ArrowDownIcon color="currentColor" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <ContentLayout title={otherWork.title}>
-        <FadeInSection>
-          <div className="mt-24">
-            <div
-              className="aspect-video rounded-xl"
-              style={{ backgroundColor: otherWork.color }}
-            ></div>
+      <div ref={refContent}>
+        <ContentLayout title={otherWork.title}>
+          {otherWork.otherImages.map((otherImage) => (
+            <FadeInSection>
+              <div className="mt-4 md:mt-12">
+                <div
+                  className="aspect-video rounded-xl overflow-hidden"
+                  style={{ backgroundColor: otherWork.color }}
+                >
+                  <img
+                    className={clsx('w-full h-full object-cover object-center')}
+                    src={otherImage}
+                    alt={otherWork.title}
+                  />
+                </div>
+              </div>
+            </FadeInSection>
+          ))}
+
+          <hr className="mt-14 md:mt-28 opacity-10 border-inherit" />
+
+          <div className="mt-14 md:mt-28 grid md:grid-cols-2 md:gap-6 gap-4">
+            {allOtherWorks.slice(0, seeMoreWorks ? 999 : 2).map((otherWork) => (
+              <div className="animate-fade-in">
+                <OtherWorkCard item={otherWork} />
+              </div>
+            ))}
           </div>
-        </FadeInSection>
-      </ContentLayout>
+
+          {allOtherWorks.length > 2 && (
+            <div className="mt-8 flex justify-center">
+              <button
+                className="text-btn text-xl flex items-center gap-2"
+                onClick={() => setSeeMoreWorks(!seeMoreWorks)}
+              >
+                See {seeMoreWorks ? 'less' : 'more'}
+              </button>
+            </div>
+          )}
+        </ContentLayout>
+      </div>
     </MainLayout>
   );
 };

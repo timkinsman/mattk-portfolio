@@ -11,6 +11,8 @@ import clsx from 'clsx';
 type Filter = 'capability' | 'industry' | 'client' | 'method' | 'output';
 const filters = ['capability', 'industry', 'client', 'method', 'output'] as Filter[];
 
+const SEARCH_PARAM_DELIMITER = ',';
+
 const capability = caseStudies
   .map((caseStudy) => caseStudy.capability)
   .flat()
@@ -30,13 +32,21 @@ export const CaseStudiesList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [showFilter, setShowFilter] = useState<Filter>();
-  const [activeFilters, setActiveFilters] = useState<string[]>(Array.from(searchParams.values()));
+  const [activeFilters, setActiveFilters] = useState<string[]>(
+    Array.from(searchParams.values()).flatMap((item) => item.split(SEARCH_PARAM_DELIMITER))
+  );
 
   const [seeMoreCaseStudies, setSeeMoreProjects] = useState(false);
 
   useEffect(() => {
-    setSearchParams({ q: activeFilters });
-  }, [setSearchParams, activeFilters]);
+    const query = activeFilters.join(SEARCH_PARAM_DELIMITER);
+    if (query.length > 0) {
+      searchParams.set('q', query);
+    } else {
+      searchParams.delete('q');
+    }
+    setSearchParams(searchParams);
+  }, [searchParams, setSearchParams, activeFilters]);
 
   const getFilter = (filter: Filter) => {
     switch (filter) {
@@ -143,7 +153,7 @@ export const CaseStudiesList = () => {
 
       <div className="mt-12 grid md:grid-cols-2 md:gap-6 gap-4">
         {filteredCaseStudies.slice(0, seeMoreCaseStudies ? 999 : 8).map((caseStudy) => (
-          <div className='animate-fade-in'>
+          <div className="animate-fade-in">
             <CaseStudyCard item={caseStudy} />
           </div>
         ))}

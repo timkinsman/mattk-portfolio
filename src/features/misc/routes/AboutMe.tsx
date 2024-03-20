@@ -4,8 +4,12 @@ import portrait from '@/assets/images/portrait.png';
 import parse from 'html-react-parser';
 import { SelectedClients } from '@/features/caseStudies';
 import { FadeInSection } from '@/components/FadeInSection';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 export const AboutMe = () => {
+  const [hasLoaded, setHasLoaded] = useState(false);
+
   return (
     <MainLayout>
       <ContentLayout title="About me">
@@ -23,7 +27,28 @@ export const AboutMe = () => {
               <p className="text-xl mt-8 whitespace-pre-line">{bio.description}</p>
             </div>
 
-            <img src={portrait} className="rounded-2xl" />
+            <div className="relative rounded-2xl overflow-hidden aspect-square">
+              <img
+                className={clsx('w-full transition-opacity opacity-100', {
+                  ['!opacity-0']: !hasLoaded,
+                })}
+                src={portrait}
+                alt="Portrait of Matthew Kinsman"
+                onLoad={() => {
+                  setHasLoaded(true);
+                }}
+              />
+
+              {/* note: skeleton */}
+              <div
+                className={clsx(
+                  'animate-pulse h-full w-full absolute bg-gray-300 dark:bg-gray-700 opacity-10 top-0 left-0',
+                  {
+                    ['hidden']: hasLoaded,
+                  }
+                )}
+              />
+            </div>
           </div>
         </FadeInSection>
 

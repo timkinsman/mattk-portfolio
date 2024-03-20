@@ -15,7 +15,8 @@ import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { logger } from '@/utils/logger';
 import { Link } from 'react-router-dom';
 import { FadeInSection } from '@/components/FadeInSection';
-// import memoji from '@/assets/videos/memoji.mp4';
+import { CaseStudy } from '@/types';
+import memojiWEBM from '@/assets/videos/memoji_1.webm';
 
 const caseStudy1 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[1]);
 const caseStudy2 = caseStudies.find((caseStudy) => caseStudy.id === landingIds[2]);
@@ -27,6 +28,12 @@ logger.info({ caseStudy1, caseStudy2, caseStudy3, caseStudy4 });
 export const Landing = () => {
   const [ticking, setTicking] = useState(true);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  const [isHoveringPanels, setIsHoveringPanels] = useState(false);
+  const [gifSrc, setGifSrc] = useState(caseStudy1?.gifSrc);
+  const [mousePosition, setMousePosition] = useState({ mouseX: 0, mouseY: 0 });
+
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   const refPanel1 = useRef<HTMLDivElement>(null);
   const refPanel2 = useRef<HTMLDivElement>(null);
@@ -48,26 +55,33 @@ export const Landing = () => {
       return;
     }
 
+    const applyCaseStudy = (caseStudy?: CaseStudy) => {
+      container.style.backgroundColor = caseStudy?.color ?? '';
+      container.style.color = caseStudy?.contrastTextColor ?? '';
+      setGifSrc(caseStudy?.gifSrc);
+    };
+
     if (refPanel1.current && isScrolledIntoView(refPanel1.current, 'majority')) {
-      logger.info('refPanel1 is scrolled into view');
-      container.style.backgroundColor = caseStudy1?.color ?? '';
-      container.style.color = caseStudy1?.contrastTextColor ?? '';
+      applyCaseStudy(caseStudy1);
     } else if (refPanel2.current && isScrolledIntoView(refPanel2.current, 'majority')) {
-      logger.info('refPanel2 is scrolled into view');
-      container.style.backgroundColor = caseStudy2?.color ?? '';
-      container.style.color = caseStudy2?.contrastTextColor ?? '';
+      applyCaseStudy(caseStudy2);
     } else if (refPanel3.current && isScrolledIntoView(refPanel3.current, 'majority')) {
-      logger.info('refPanel3 is scrolled into view');
-      container.style.backgroundColor = caseStudy3?.color ?? '';
-      container.style.color = caseStudy3?.contrastTextColor ?? '';
+      applyCaseStudy(caseStudy3);
     } else if (refPanel4.current && isScrolledIntoView(refPanel4.current, 'majority')) {
-      logger.info('refPanel4 is scrolled into view');
-      container.style.backgroundColor = caseStudy4?.color ?? '';
-      container.style.color = caseStudy4?.contrastTextColor ?? '';
+      applyCaseStudy(caseStudy4);
     } else {
       container.style.backgroundColor = '';
       container.style.color = '';
     }
+  }, []);
+
+  const onMouseMove = useCallback((event: MouseEvent) => {
+    const { clientX, clientY } = event;
+
+    setMousePosition({
+      mouseX: clientX,
+      mouseY: clientY,
+    });
   }, []);
 
   useEffect(() => {
@@ -78,14 +92,25 @@ export const Landing = () => {
     };
   }, [onScroll]);
 
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+    };
+  }, [onMouseMove]);
+
   return (
     <>
       <Head description="Hello, my name is Matthew Kinsman, I’m a senior product designer currently living in Melbourne and working at Mindset Health." />
       <MainLayout>
         <div className="relative">
           {/* max-w-7xl mx-auto */}
-          <div id={landingIds[0]} className="px-4 sm:px-6 lg:px-24 h-[100dvh] grid md:grid-cols-2">
-            <div className="m-auto order-1 md:order-none">
+          <div
+            id={landingIds[0]}
+            className="px-4 sm:px-6 lg:px-24 h-screen grid min-[1200px]:grid-cols-2"
+          >
+            <div className="m-auto order-1 min-[1200px]:order-none max-w-[800px]">
               <h2 className="lg:text-[50px] lg:leading-[72px] text-[28px] leading-[40px]">
                 Hello, my name is{' '}
                 <Link to="/about-me" className="md:border-b-[3px]">
@@ -103,7 +128,17 @@ export const Landing = () => {
               </h2>
             </div>
 
-            {/* <div className="m-auto text-9xl"></div> */}
+            <div className="m-auto text-9xl w-full max-w-[700px] hidden min-[1200px]:block">
+              <video
+                onCanPlay={() => setHasLoaded(true)}
+                src={memojiWEBM}
+                autoPlay
+                className={clsx('w-full transition-opacity opacity-100', {
+                  ['!opacity-0']: !hasLoaded,
+                })}
+                loop
+              />
+            </div>
           </div>
 
           <div className="absolute bottom-0 h-[120px] flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
@@ -124,20 +159,25 @@ export const Landing = () => {
           </div>
         </div>
 
-        <div id={landingIds[1]} ref={refPanel1} className="h-[100dvh] flex">
-          <Panel id={landingIds[1]} />
-        </div>
+        <div
+          onMouseEnter={() => setIsHoveringPanels(true)}
+          onMouseLeave={() => setIsHoveringPanels(false)}
+        >
+          <div id={landingIds[1]} ref={refPanel1} className="h-screen flex">
+            <Panel id={landingIds[1]} />
+          </div>
 
-        <div id={landingIds[2]} ref={refPanel2} className="h-[100dvh] flex">
-          <Panel id={landingIds[2]} />
-        </div>
+          <div id={landingIds[2]} ref={refPanel2} className="h-screen flex">
+            <Panel id={landingIds[2]} />
+          </div>
 
-        <div id={landingIds[3]} ref={refPanel3} className="h-[100dvh] flex">
-          <Panel id={landingIds[3]} />
-        </div>
+          <div id={landingIds[3]} ref={refPanel3} className="h-screen flex">
+            <Panel id={landingIds[3]} />
+          </div>
 
-        <div id={landingIds[4]} ref={refPanel4} className="h-[100dvh] flex">
-          <Panel id={landingIds[4]} />
+          <div id={landingIds[4]} ref={refPanel4} className="h-screen flex">
+            <Panel id={landingIds[4]} />
+          </div>
         </div>
 
         <div id={landingIds[5]} className="py-14 md:py-28">
@@ -235,6 +275,15 @@ export const Landing = () => {
             </button>
           ))}
         </div>
+
+        <img
+          className={clsx('transition-opacity fixed max-w-3xl rounded-lg opacity-0 z-10 w-full', {
+            ['opacity-100']: isHoveringPanels,
+          })}
+          style={{ top: mousePosition.mouseY + 16, left: mousePosition.mouseX + 16 }}
+          src={gifSrc}
+          alt="hover item"
+        />
       </MainLayout>
     </>
   );
