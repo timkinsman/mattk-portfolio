@@ -1,5 +1,9 @@
 import { CaseStudy } from '@/types';
 import { getContrastTextColor } from '@/utils/getContrastTextColor';
+import cityOfPortPhillipGif from '@/assets/gifs/city-of-port-phillip.gif';
+import bupaGif from '@/assets/gifs/bupa.gif';
+import bankVicGif from '@/assets/gifs/bank-vic.gif';
+import lumeaGif from '@/assets/gifs/lumea.gif';
 
 export const caseStudies: CaseStudy[] = [
   {
@@ -52,6 +56,44 @@ export const caseStudies: CaseStudy[] = [
       'Stakeholder Interviews',
       'User Interviews',
     ],
+    gifSrc: cityOfPortPhillipGif,
+    content: [
+      {
+        title: 'Brief',
+        content:
+          'Design and implement a digital experience platform as part of the Council’s Customer Experience Program.',
+      },
+      {
+        title: 'Background',
+        content:
+          'In 2019 Port Phillip Council’s digital heart was in need of a major upgrade. 53% of customers reported that they were unable to find what they were searching for, or that they required further information following their visit to the website. At the same time, legacy systems and platforms were impacting efficiency, meaning Council’s digital ecosystem required much more than a new lick of paint.<br /><br />“The current, clunky system is well and truly past its use-by date. The ageing technology is not meeting the growing demand and expectations from people accessing our websites for everything from requesting services to applying for permits.” - Mayor Gross, City of Port Phillip<br /><br />VERSA was awarded a ten year contract to support Port Phillip’s digital transformation, leading the redesign and development of a new technical ecosystem.',
+      },
+      {
+        title: 'Challenge',
+        content:
+          'Establish a centralised digital platform for service delivery and engagement that will support the city’s evolution towards a digital-first future.',
+      },
+      {
+        title: 'Objective',
+        content:
+          'Discovery work is centred around knowledge gathering and laying the foundations for which an effective product can be built. Phase 1 of the engagement has predominantly focussed on the four festival websites, whilst also covering some aspects of the council website.<br /><br /><ul><li>To understand organisational objectives and requirements for the project.</li><li>To discover and document core insights, user needs and challenges.</li><li>To review the current platform ecosystem.</li><li>To create a vision, direction and strategy required to meet the organisational objectives.</li></ul>',
+      },
+      {
+        title: 'Results',
+        content:
+          'We are currently working with Council in a phased approach to consolidate 14 seperate sites and create a new customer-centric platform. This has involved an extensive user research and customer engagement process to understand audience needs, as well as a thorough audit of the existing digital ecosystem.<br /><br />Development of a core web framework is underway, with a custom pattern library created using atomic design principles. This, combined with the use of Umbraco CMS, will allow Council to easily manage and update their suite of websites within one centralised platform. The MVP solution launched in March 2020 with the release of three pilot sites for St Kilda Film Festival, St Kilda Festival and Live & Local festival.<br /><br />The VERSA team is in the midst of developing the corporate website and intranet, including the transformation of online services to new system TechOne. The next release is scheduled for August 2020.<br /><br />',
+      },
+      {
+        title: 'Deliverables',
+        content:
+          '8 website re-designs including:<br /><br /><ul><li>St Kilda Festival</li><li>St Kilda Film Festival</li><li>To review the current platform ecosystem.</li><li>Yaluk-Ut Weelam Ngargee Festival</li><li>Live N Local Festival</li><li>City of Port Phillip Council</li><li>City of Port Phillip Council Intranet</li><li>South Melbourne Market</li><li>St Kilda Esplanade Market</li></ul>',
+      },
+      {
+        title: 'Testimonials',
+        content:
+          '“I have worked with the VERSA team for 10 months, on the Service Experience project at the City of Port Phillip. The Service Experience Project is currently underway. It is a key part of Council’s Customer Experience and Business Transformation project.<br /><br />VERSA’s agile agency approach has suited the needs of the City of Port Phillip. Through each phase VERSA conducted workshop sessions with representatives from all the key disciplines. I really appreciated and enjoyed these sessions. Having the input and insight of designers, developers, UX and strategy in the room helped us gain a comprehensive picture of our requirements. As we’ve moved through the project, the benefit of continuity with the team being a part of these initial sessions has been telling in our ability to function and problem solve as a collective unit.<br /><br />In the tender process, I appreciated VERSA’s approach to technology. Rather than offering a single technology solution, they presented two distinct offerings and talked us through the relative advantages of each. This showed that the agency held the technical knowledge we sought and gave us confidence that VERSA were offering us unbiased recommendations based on their expert advice rather than a financial or other contractual motive.<br /><br />VERSA have demonstrated a strong understanding of our needs. In the past Council has approached website projects in isolation, with little to no consideration of our context. This project sought to change that, and VERSA immediately understood this.<br /><br />I have personally appreciated VERSA’s collegiate approach to this project, which has made them a pleasure to work with. Being able to connect and work directly with their entire team, rather than just one project manager, has enabled me to develop strong trust in their process and the team.<br /><br />VERSA is a great partner to work with. They show a keen understanding of local GOVERNMENT and a genuine interest in the sector. I would not hesitate to recommend them to you as a supplier and excellent strategic partner.<br /><br />If you have any further questions about VERSA and my experience working with them, please feel free to contact me.” - Ben Sylvan, Coordinator of Digital, City of Port Phillip',
+      },
+    ],
   },
   {
     id: 'bank-vic',
@@ -99,6 +141,7 @@ export const caseStudies: CaseStudy[] = [
       'User Interviews',
       'IA: Card Sorting',
     ],
+    gifSrc: bankVicGif,
   },
   {
     id: 'lumea',
@@ -124,6 +167,7 @@ export const caseStudies: CaseStudy[] = [
     industry: [],
     capability: [],
     method: [],
+    gifSrc: lumeaGif,
   },
   {
     id: 'bupa',
@@ -154,6 +198,7 @@ export const caseStudies: CaseStudy[] = [
     industry: [],
     capability: [],
     method: [],
+    gifSrc: bupaGif,
   },
   {
     id: 'beyond-blue',

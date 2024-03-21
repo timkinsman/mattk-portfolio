@@ -23,7 +23,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       id="container"
       className="bg-[#F5F5F5] dark:bg-[#0b0b0c] text-black dark:text-white transition-all duration-300"
     >
-      <div className="min-h-[100dvh] flex overflow-hidden">
+      <div className="min-h-screen flex overflow-hidden">
         {/* <MobileSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
         {/* <Sidebar /> */}
         <div className="flex flex-col w-0 flex-1 overflow-hidden">
@@ -43,7 +43,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
             {/* if desktop */}
             <div className="flex-1 justify-end hidden min-[1200px]:flex">
-              <ul className="flex items-center gap-8">
+              <ul className="flex items-center gap-10">
                 {navigation
                   .filter((item) => item.to !== '/')
                   .map((item) => (
@@ -62,14 +62,23 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         </div>
 
         <div
-          className={clsx('relative z-50', {
+          className={clsx('relative z-50 animate-fade-in', {
             ['hidden']: !sidebarOpen,
           })}
         >
           <div className="fixed inset-0 bg-gray-800 opacity-25"></div>
 
           <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-full px-4 bg-[#F5F5F5] dark:bg-[#0F0E10] text-black dark:text-white overflow-y-auto justify-between">
-            <div className="flex items-center h-16">
+            <div className="flex items-center h-[120px]">
+              <Link
+                to="/"
+                className={clsx('text-xl md:text-2xl', {
+                  'opacity-100': location.pathname === '/',
+                })}
+                onClick={() => setSidebarOpen(false)}
+              >
+                Matthew Kinsman
+              </Link>
               <div className="ml-auto flex">
                 <button
                   className="opacity-40 hover:opacity-100"
@@ -95,18 +104,22 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
 
             <div className="py-6">
               <ul className="flex flex-col gap-8">
-                {navigation.map((item) => (
-                  <div className="w-fit">
-                    <Link
-                      key={item.name}
-                      to={item.to}
-                      className={clsx('text-3xl', { 'opacity-100': location.pathname === item.to })}
-                      onClick={() => setSidebarOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  </div>
-                ))}
+                {navigation
+                  .filter((item) => item.to !== '/')
+                  .map((item) => (
+                    <div className="w-fit">
+                      <Link
+                        key={item.name}
+                        to={item.to}
+                        className={clsx('text-3xl', {
+                          'opacity-100': location.pathname === item.to,
+                        })}
+                        onClick={() => setSidebarOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    </div>
+                  ))}
               </ul>
             </div>
           </nav>
@@ -164,7 +177,7 @@ const Footer = () => {
             className="opacity-40 hover:opacity-100 transition-opacity duration-300 text-current focus:outline-none rounded-lg text-sm p-1"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <ArrowUpIcon  />
+            <ArrowUpIcon />
           </button>
         </div>
       </div>

@@ -38,6 +38,10 @@ export type CaseStudy = {
   industry: Industry[];
   capability: Capability[];
   method: Method[];
+
+  gifSrc?: string;
+
+  content?: { title: ContentTitle; content: string }[];
 };
 
 export type NavigationItem = {
@@ -103,6 +107,15 @@ export type Method =
   | 'Stakeholder Interviews'
   | 'User Interviews';
 
+export type ContentTitle =
+  | 'Brief'
+  | 'Background'
+  | 'Challenge'
+  | 'Objective'
+  | 'Results'
+  | 'Deliverables'
+  | 'Testimonials';
+
 export type OtherWork = {
   id: string;
   img: string;
@@ -110,4 +123,5 @@ export type OtherWork = {
   contrastTextColor: string;
   title: string;
   hero: string;
+  otherImages: string[];
 };

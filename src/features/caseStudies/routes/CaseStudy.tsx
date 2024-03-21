@@ -15,7 +15,7 @@ export const CaseStudy = () => {
   const refPanel = useRef<HTMLDivElement>(null);
   const refContent = useRef<HTMLDivElement>(null);
 
-  const [seeMoreCaseStudies, setSeeMoreProjects] = useState(false);
+  const [seeMoreCaseStudies, setSeeMoreCaseStudies] = useState(false);
 
   const caseStudy = caseStudies.find((cs) => cs.id === id);
 
@@ -58,14 +58,25 @@ export const CaseStudy = () => {
     return <NotFound />;
   }
 
-  const otherCaseStudies = caseStudies.filter((item) => item.id !== caseStudy.id);
+  const allOtherCaseStudies = caseStudies.filter((item) => item.id !== caseStudy.id);
+
+  const renderSection = (title: string, content: string) => {
+    return (
+      <FadeInSection>
+        <div className="mt-8 md:mt-20">
+          <h2 className="text-2xl">{title}</h2>
+          <p className="opacity-80 text-xl mt-2 md:mt-6">{parse(content)}</p>
+        </div>
+      </FadeInSection>
+    );
+  };
 
   return (
     <MainLayout>
       <div className="relative">
-        <div ref={refPanel} className="px-4 sm:px-6 lg:px-24 h-[100dvh] flex">
+        <div ref={refPanel} className="px-4 sm:px-6 lg:px-24 h-screen flex">
           <div className="m-auto">
-            <h2 className="text-[28px]">{caseStudy?.hero}</h2>
+            <h2 className="text-[28px] max-w-[1392px] px-4 sm:px-6 lg:px-24">{caseStudy?.hero}</h2>
           </div>
 
           <div className="absolute bottom-0 left-0 h-[120px] flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">
@@ -85,7 +96,7 @@ export const CaseStudy = () => {
       <div ref={refContent}>
         <ContentLayout title={caseStudy.title}>
           <FadeInSection>
-            <div className="mt-24">
+            <div className="mt-8 md:mt-20">
               <div className="mt-8 grid md:grid-cols-3 gap-8 md:gap-12">
                 <div>
                   <h3 className="text-2xl">Visit</h3>
@@ -149,7 +160,7 @@ export const CaseStudy = () => {
           </FadeInSection>
 
           <FadeInSection>
-            <div className="mt-24">
+            <div className="mt-8 md:mt-20">
               <div
                 className="aspect-video rounded-xl flex items-center justify-center"
                 style={{ backgroundColor: caseStudy.color }}
@@ -159,21 +170,25 @@ export const CaseStudy = () => {
             </div>
           </FadeInSection>
 
+          <div className="max-w-5xl mx-auto">
+            {caseStudy.content?.map((item) => renderSection(item.title, item.content))}
+          </div>
+
           <hr className="mt-14 md:mt-28 opacity-10 border-inherit" />
 
           <div className="mt-14 md:mt-28 grid md:grid-cols-2 md:gap-6 gap-4">
-            {otherCaseStudies.slice(0, seeMoreCaseStudies ? 999 : 2).map((caseStudy) => (
+            {allOtherCaseStudies.slice(0, seeMoreCaseStudies ? 999 : 2).map((caseStudy) => (
               <div className="animate-fade-in">
                 <CaseStudyCard item={caseStudy} />
               </div>
             ))}
           </div>
 
-          {otherCaseStudies.length > 2 && (
+          {allOtherCaseStudies.length > 2 && (
             <div className="mt-8 flex justify-center">
               <button
                 className="text-btn text-xl flex items-center gap-2"
-                onClick={() => setSeeMoreProjects(!seeMoreCaseStudies)}
+                onClick={() => setSeeMoreCaseStudies(!seeMoreCaseStudies)}
               >
                 See {seeMoreCaseStudies ? 'less' : 'more'}
               </button>

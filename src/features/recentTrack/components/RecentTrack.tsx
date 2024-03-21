@@ -32,8 +32,8 @@ export const RecentTrack = () => {
   if (token.isLoading || recentTracks.isLoading || tracks.isLoading) {
     return (
       <div role="status" className="inline-flex gap-4 items-center max-w-sm animate-pulse">
-        <div className="h-7 bg-black rounded-full dark:bg-white w-7 opacity-10"></div>
-        <div className="h-2 bg-black rounded-full dark:bg-white w-48 opacity-10"></div>
+        <div className="h-7 bg-gray-300 dark:bg-gray-700 rounded-full w-7 opacity-10"></div>
+        <div className="h-2 bg-gray-300 dark:bg-gray-700 rounded-full w-48 opacity-10"></div>
       </div>
     );
   }

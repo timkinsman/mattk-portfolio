@@ -4,6 +4,7 @@ import portrait from '@/assets/images/portrait.png';
 import parse from 'html-react-parser';
 import { SelectedClients } from '@/features/caseStudies';
 import { FadeInSection } from '@/components/FadeInSection';
+import { Image } from '@/components/Elements';
 
 export const AboutMe = () => {
   return (
@@ -23,7 +24,7 @@ export const AboutMe = () => {
               <p className="text-xl mt-8 whitespace-pre-line">{bio.description}</p>
             </div>
 
-            <img src={portrait} className="rounded-2xl" />
+            <Image src={portrait} alt="Portrait of Matthew Kinsman" aspect="square" />
           </div>
         </FadeInSection>
 
