@@ -65,7 +65,7 @@ export const OtherWork = () => {
       <div className="relative">
         <div ref={refPanel} className="px-4 sm:px-6 lg:px-24 h-screen flex">
           <div className="m-auto">
-            <h2 className="text-[28px] max-w-[1392px] px-4 sm:px-6 lg:px-24">{otherWork?.hero}</h2>
+            <h2 className="text-[28px] max-w-[1200px] px-4 sm:px-6 lg:px-24">{otherWork?.hero}</h2>
           </div>
 
           <div className="absolute bottom-0 left-0 h-[120px] flex items-center justify-between w-full px-4 sm:px-6 lg:px-24 gap-2">

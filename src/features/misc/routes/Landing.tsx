@@ -108,9 +108,9 @@ export const Landing = () => {
           {/* max-w-7xl mx-auto */}
           <div
             id={landingIds[0]}
-            className="px-4 sm:px-6 lg:px-24 h-screen grid min-[1200px]:grid-cols-2"
+            className="px-4 sm:px-6 lg:px-24 h-screen grid min-[1200px]:grid-cols-5"
           >
-            <div className="m-auto order-1 min-[1200px]:order-none max-w-[800px]">
+            <div className="m-auto order-1 min-[1200px]:order-none max-w-[800px] col-span-3 ml-0">
               <h2 className="lg:text-[50px] lg:leading-[72px] text-[28px] leading-[40px]">
                 Hello, my name is{' '}
                 <Link to="/about-me" className="md:border-b-[3px]">
@@ -128,7 +128,7 @@ export const Landing = () => {
               </h2>
             </div>
 
-            <div className="m-auto text-9xl w-full max-w-[700px] hidden min-[1200px]:block">
+            <div className="m-auto text-9xl w-full max-w-[700px] hidden min-[1200px]:block col-span-2 mr-0 scale-125">
               <video
                 onCanPlay={() => setHasLoaded(true)}
                 src={memojiWEBM}
@@ -181,7 +181,7 @@ export const Landing = () => {
         </div>
 
         <div id={landingIds[5]} className="py-14 md:py-28">
-          <div className="max-w-[1392px] mx-auto px-4 sm:px-6 lg:px-24">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-24">
             <FadeInSection>
               <CaseStudiesList />
             </FadeInSection>
@@ -277,7 +277,7 @@ export const Landing = () => {
         </div>
 
         <img
-          className={clsx('transition-opacity fixed max-w-3xl rounded-lg opacity-0 z-10 w-full', {
+          className={clsx('transition-opacity fixed max-w-2xl rounded-lg opacity-0 z-10 w-full', {
             ['opacity-100']: isHoveringPanels,
           })}
           style={{ top: mousePosition.mouseY + 16, left: mousePosition.mouseX + 16 }}
