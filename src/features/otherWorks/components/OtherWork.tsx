@@ -18,7 +18,7 @@ export const OtherWorkCard = ({ item }: OtherWorkCardProps) => {
     >
       <div
         style={{ backgroundColor: item.color, color: item.contrastTextColor }}
-        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full flex items-center justify-center "
+        className="absolute opacity-100 group-hover:opacity-0 transition-opacity duration-300 w-full h-full flex items-center justify-center"
       >
         <img
           className={clsx('w-full transition-opacity opacity-100', { ['!opacity-0']: !hasLoaded })}

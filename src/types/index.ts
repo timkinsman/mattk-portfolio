@@ -40,6 +40,8 @@ export type CaseStudy = {
   method: Method[];
 
   gifSrc?: string;
+
+  content?: { title: ContentTitle; content: string }[];
 };
 
 export type NavigationItem = {
@@ -104,6 +106,15 @@ export type Method =
   | 'Roadmapping'
   | 'Stakeholder Interviews'
   | 'User Interviews';
+
+export type ContentTitle =
+  | 'Brief'
+  | 'Background'
+  | 'Challenge'
+  | 'Objective'
+  | 'Results'
+  | 'Deliverables'
+  | 'Testimonials';
 
 export type OtherWork = {
   id: string;

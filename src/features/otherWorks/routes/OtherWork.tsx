@@ -6,8 +6,8 @@ import { isScrolledIntoView } from '@/utils/isScrolledIntoView';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { OtherWorkCard } from '../components/OtherWork';
-import clsx from 'clsx';
 import ArrowDownIcon from '@/assets/arrow-down.svg?react';
+import { Image } from '@/components/Elements';
 
 export const OtherWork = () => {
   const { id } = useParams();
@@ -85,18 +85,14 @@ export const OtherWork = () => {
       <div ref={refContent}>
         <ContentLayout title={otherWork.title}>
           {otherWork.otherImages.map((otherImage) => (
-            <FadeInSection>
+            <FadeInSection key={otherImage}>
               <div className="mt-4 md:mt-12">
-                <div
-                  className="aspect-video rounded-xl overflow-hidden"
-                  style={{ backgroundColor: otherWork.color }}
-                >
-                  <img
-                    className={clsx('w-full h-full object-cover object-center')}
-                    src={otherImage}
-                    alt={otherWork.title}
-                  />
-                </div>
+                <Image
+                  fallbackBackgroundColor={otherWork.color}
+                  src={otherImage}
+                  alt={otherWork.title}
+                  aspect="video"
+                />
               </div>
             </FadeInSection>
           ))}

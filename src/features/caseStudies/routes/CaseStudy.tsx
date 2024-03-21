@@ -60,6 +60,17 @@ export const CaseStudy = () => {
 
   const allOtherCaseStudies = caseStudies.filter((item) => item.id !== caseStudy.id);
 
+  const renderSection = (title: string, content: string) => {
+    return (
+      <FadeInSection>
+        <div className="mt-8 md:mt-20">
+          <h2 className="text-2xl">{title}</h2>
+          <p className="opacity-80 text-xl mt-2 md:mt-6">{parse(content)}</p>
+        </div>
+      </FadeInSection>
+    );
+  };
+
   return (
     <MainLayout>
       <div className="relative">
@@ -85,7 +96,7 @@ export const CaseStudy = () => {
       <div ref={refContent}>
         <ContentLayout title={caseStudy.title}>
           <FadeInSection>
-            <div className="mt-24">
+            <div className="mt-8 md:mt-20">
               <div className="mt-8 grid md:grid-cols-3 gap-8 md:gap-12">
                 <div>
                   <h3 className="text-2xl">Visit</h3>
@@ -149,7 +160,7 @@ export const CaseStudy = () => {
           </FadeInSection>
 
           <FadeInSection>
-            <div className="mt-24">
+            <div className="mt-8 md:mt-20">
               <div
                 className="aspect-video rounded-xl flex items-center justify-center"
                 style={{ backgroundColor: caseStudy.color }}
@@ -158,6 +169,10 @@ export const CaseStudy = () => {
               </div>
             </div>
           </FadeInSection>
+
+          <div className="max-w-5xl mx-auto">
+            {caseStudy.content?.map((item) => renderSection(item.title, item.content))}
+          </div>
 
           <hr className="mt-14 md:mt-28 opacity-10 border-inherit" />
 
