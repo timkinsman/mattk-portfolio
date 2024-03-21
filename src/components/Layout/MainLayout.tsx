@@ -134,7 +134,7 @@ const Footer = () => {
   const location = useLocation();
 
   return (
-    <div className="max-w-[1392px] mx-auto px-4 sm:px-6 lg:px-24">
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-24">
       <hr className="pb-14 md:pb-24 opacity-10 border-inherit" />
       <div className="pb-14 md:pb-24 grid md:grid-cols-footer items-start gap-14">
         <div>
